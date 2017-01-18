@@ -1,0 +1,30 @@
+#!/bin/sh
+
+echo "installing fonts at $PWD to ~/.fonts/"
+
+mkdir -p ~/.fonts/adobe-fonts/source-code-pro
+mkdir -p ~/.fonts/adobe-fonts/source-han-sans
+
+git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
+
+git clone --depth 1 --branch release https://github.com/adobe-fonts/source-han-sans.git ~/.fonts/adobe-fonts/source-han-sans
+
+# find ~/.fonts/ -iname '*.ttf' -exec echo \{\} \;
+
+fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
+fc-cache -f -v ~/.fonts/adobe-fonts/source-han-sans
+
+
+mkdir -p ~/.fonts/FantasqueSansMono
+wget -P ~/.fonts/FantasqueSansMono -c https://github.com/belluzj/fantasque-sans/releases/download/v1.7.1/FantasqueSansMono.tar.gz 
+
+tar xvfz ~/.fonts/FantasqueSansMono/FantasqueSansMono.tar.gz  -C ~/.fonts/FantasqueSansMono
+
+fc-cache -f -v ~/.fonts/FantasqueSansMono
+
+
+mkdir -p ~/.fonts/font-awesome
+wget -c -P  ~/.fonts/font-awesome  https://github.com/FortAwesome/Font-Awesome/blob/master/fonts/fontawesome-webfont.ttf?raw=true -O fontawesome-webfont.ttf
+fc-cache -f -v ~/.fonts/font-awesome
+
+echo "finished installing"

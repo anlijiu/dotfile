@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/devilspie2
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Devilspie Daemon
+Name=Devilspie Daemon
+Comment[en_US]=Script will continuously restart devilspie if stopped
+Comment=Script will continuously restart devilspie if stopped
