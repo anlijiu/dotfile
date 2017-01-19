@@ -12,5 +12,6 @@ source ~/.vim/config/other.vim
 source ~/.vim/config/android.vim
 source ~/.vim/config/supertab.vim
 source ~/.vim/config/basic.vim
+source ~/.vim/config/airline.vim
 
 filetype plugin indent on

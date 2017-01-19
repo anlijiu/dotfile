@@ -72,6 +72,7 @@ NeoBundle 'vim-scripts/a.vim'
 NeoBundle "hsanson/vim-android"
 NeoBundle "artur-shaik/vim-javacomplete2"
 NeoBundle "ervandew/supertab"
+NeoBundle "gko/vim-coloresque"
 "NeoBundle 'marijnh/tern_for_vim'
 call neobundle#end()
 " NeoBundleInstall
