@@ -98,27 +98,29 @@ set_prompt () {
     Reset='\[\e[00m\]'
     FancyX='\342\234\227'
     Checkmark='\342\234\223'
+    SkullBone='\342\230\240'
+    LightYellow='\e[38;5;229m'
 
 
     #PS1="$Kahki┌─[\d]$White[$Purple\u@$Green\h:$Blue\w$White]$CloseColor\n$Kahki└─>$Viridity\$ $CloseColor"
     # Add a bright white exit status for the last command
-    PS1="$Kahki┌─   \D{%Y-%m-%d %a} "
+    PS1="$Kahki┌─ 💪  \D{%Y-%m-%d %a} "
 
     # If root, just print the host in red. Otherwise, print the current user
     # and host in green.
     if [[ $EUID == 0 ]]; then
         PS1+="$White[$Red\u@"
     else
-        PS1+="$White $Purple\u@"
+        PS1+="$White$SkullBone $Purple\u@"
     fi
-    PS1+="$Green\h:$Blue\w]  "
+    PS1+="$Green\h:$Blue\w$White"
 
     # If it was successful, print a green check mark. Otherwise, print
     # a red X.
     if [[ $Last_Command == 0 ]]; then
-        PS1+="$Green$Checkmark "
+        PS1+="🛪   $Green$Checkmark "
     else
-        PS1+="$Red$FancyX "
+        PS1+="\e[01;33m💩   $Red$FancyX "
     fi
 
     # Add the ellapsed time and current date
@@ -137,6 +139,8 @@ if [ "$color_prompt" = no ]; then
     # PS1="┌─[\d][\u@\h:\w]\n└─>"
 fi
 unset color_prompt force_color_prompt
+
+PS2="\[\e[01;33m\]  ->     \[\e[0m\]"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
