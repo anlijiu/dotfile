@@ -271,4 +271,4 @@ export PATH=$PATH:$NPM_PACKAGES/bin
 # PS1="\[\e[0;1m\]┌─( \[\e[31;1m\]\u\[\e[0;1m\] ) – ( \[\e[36;1m\]\w\[\e[0;1m\] )\n└──┤ \[\e[0m\]"
 # PS1="┌─[\d][\u@\h:\w]\n└─>"
 nvm use v7.4.0
-rvm use 2.3.1
+rvm use ruby-2.3.1@dream-api

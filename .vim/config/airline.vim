@@ -11,6 +11,8 @@ let g:airline_powerline_fonts=1
 "打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+" title 不显示路径
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "设置切换Buffer快捷键"
 nnoremap <C-tab> :bn<CR>
