@@ -152,6 +152,21 @@ set splitright
 map <F4> :w<CR> :!ruby %<CR>
 "noremap <Leader><F4> <ESC>:!ruby %<CR>     "leader 键默认'\' 可通过let mapleader = , 设置
 
+"F10 隐藏 或者 显示 注释
+nmap <silent> <F10> :call HideComments() <CR>
+let s:hide_comments = 0
+function! HideComments()
+    if (s:hide_comments == 0)
+        let s:hide_comments = 1
+        :hi! link Comment Ignore
+        echo "Hide comments"
+    else
+        let s:hide_comments = 0
+        :hi! link Comment Comment
+        echo "Show comments"
+    endif
+endfunction
+
 " 検索結果を中心へ
 nnoremap n nzz
 nnoremap N Nzz
