@@ -157,12 +157,17 @@ nmap <silent> <F10> :call HideComments() <CR>
 let s:hide_comments = 0
 function! HideComments()
     if (s:hide_comments == 0)
+        :set fdm=expr
+        :set fde=getline(v:lnum)=~'^\\s#'?1:getline(prevnonblank(v:lnum))=~'^\\s#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
         let s:hide_comments = 1
-        :hi! link Comment Ignore
+        set foldenable
+        " :hi! link Comment Ignore
         echo "Hide comments"
     else
         let s:hide_comments = 0
-        :hi! link Comment Comment
+        " :hi! link Comment Comment
+        :set fdm=syntax
+        set nofoldenable
         echo "Show comments"
     endif
 endfunction
