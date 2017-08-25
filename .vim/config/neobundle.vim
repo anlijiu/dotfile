@@ -58,6 +58,9 @@ NeoBundle 'tyru/caw.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
+"sudo npm -g install instant-markdown-d
+"gem install redcarpet pygments.rb
+NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'zenorocha/dracula-theme'
 NeoBundle "airblade/vim-gitgutter"
 NeoBundle "gregsexton/gitv"
@@ -69,10 +72,13 @@ NeoBundle 'isRuslan/vim-es6-snippets'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'vim-scripts/a.vim'
-NeoBundle "hsanson/vim-android"
 NeoBundle "artur-shaik/vim-javacomplete2"
 NeoBundle "ervandew/supertab"
 NeoBundle "gko/vim-coloresque"
+NeoBundle "pangloss/vim-javascript"
+NeoBundle "mxw/vim-jsx"
+NeoBundle "tpope/vim-unimpaired"
+NeoBundle "drmikehenry/vim-fixkey"
 "NeoBundle 'marijnh/tern_for_vim'
 call neobundle#end()
 " NeoBundleInstall

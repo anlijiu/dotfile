@@ -21,6 +21,7 @@ set guifont="Literation Mono Powerline h16"
 
 set helplang=zh
 
+
 "vim 打开多个文件用tab方式显示buffer
 set switchbuf=useopen,usetab,newtab
 " tab buffer 快捷键 :bfirst, :blast, :sbuffer, :sbnext, :sbprevious
@@ -29,8 +30,14 @@ nnoremap <C-Right> :bnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
+let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
+let g:neocomplcache_force_overwrite_completefunc = 1 "解决Another plugin set completefunc! Disabled neocomplcache这个错误
+
 "Sudow 命令在vim里面进入root 保存
 command -nargs=? Sudow :w !sudo tee %
+
+"让js文件也和jsx文件一样对react jsx缩进高亮
+let g:jsx_ext_required = 0
 
 "swp文件
 set swapfile
@@ -132,6 +139,8 @@ let g:indentLine_color_gui = '#303030'
 let g:indentLine_enabled=0
 "let g:indentLine_char = '¦'
 
+"css 
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
 "scss-syntax.vim
 au BufRead,BufNewFile *.scss set ft=scss syntax=scss
 autocmd FileType scss set iskeyword+=-
@@ -232,5 +241,16 @@ map <silent> <leader>1 :diffget 1<CR> :diffupdate<CR>
 map <silent> <leader>2 :diffget 2<CR> :diffupdate<CR>
 map <silent> <leader>3 :diffget 3<CR> :diffupdate<CR>
 map <silent> <leader>4 :diffget 4<CR> :diffupdate<CR>
+
+"Vim中快速移动行文本 
+"Alt + k ： 上移
+"Alt + j ： 下移
+" nnoremap <M-j> :m-2<CR>
+" nnoremap <M-k> :m+<CR>
+" nnoremap <M-j> :m .+1<CR>==
+" nnoremap <M-k> :m .-2<CR>==
+" vnoremap <M-j> :m '>+1<CR>gv=gv
+" vnoremap <M-k> :m '<-2<CR>gv=gv
+
 
 "for gradle
