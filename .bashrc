@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-source ~/.private_profile
 
 # If not running interactively, don't do anything
 case $- in
@@ -38,8 +37,31 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -84,7 +106,16 @@ function timer_stop {
     unset timer_start
 }
 
+function setTitle {
+    echo -e "\033]0;${PWD}\007" 
+}
 
+export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{
+if (length($0) > 14) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF;
+else if (NF>3) print $1 "/" $2 "/.../" $NF;
+else print $1 "/.../" $NF; }
+else print $0;}'"'"')'
+    PS1='$(eval "echo ${MYPS}")$ '
 set_prompt () {
     Last_Command=$? # Must come first!
     Blue='\[\e[01;34m\]'
@@ -128,8 +159,10 @@ set_prompt () {
     PS1+="($timer_show) \t "
 
     # 最后的\033]0;$("pwd") \a 为设置标题
-    PS1+="$CloseColor\n$Kahki└─>$Viridity\$ $CloseColor \033]0;$("pwd") \a"
+    # PS1+="$CloseColor\n$Kahki└─>$Viridity\$ $CloseColor \033]0;$("pwd") \a"
+    PS1+="$CloseColor \033]0;$(eval "echo ${MYPS}")\a\n$Kahki└─>$Viridity\$ $CloseColor"
 }
+
 
 trap 'timer_start' DEBUG
 PROMPT_COMMAND='set_prompt'
@@ -164,19 +197,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# alias grep='grep --exclude-dir=build --color=auto'
-
-#新建terminal tab 页时工作目录延用上一个
-# . /etc/profile.d/vte.sh
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-alias g='gvim'
-alias vi='vim'
-alias v='vim'
+alias v="vim"
 alias c='google-chrome  --enable-accelerated-compositing --enable-webgl'
 alias f='firefox'
 alias cdmw='cd ~/workspace/letv/vendor/letv/apps/LetvCarObd'
@@ -206,69 +234,26 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/lib64
-
-export QT_BIN=/usr/lib64/qt4/bin
-export GOPATH=~/go
-export JAVA6_HOME=/opt/jdk1.6.0_45
-export JAVA7_HOME=/opt/jdk1.7.0_71
-# export JAVA8_HOME=/opt/jdk1.8.0_92
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-# export RUBYMINE_JDK=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-3.b17.fc22.x86_64
-export CL_JDK=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.65-3.b17.fc22.x86_64
-# export RUBYMINE_JDK=$JAVA8_HOME
-# export RUBYMINE_JDK=$JAVA7_HOME
-export OPEN_JDK_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-# export JAVA_HOME=$OPEN_JDK_HOME
 export JAVA_HOME=$JAVA8_HOME
-# export JAVACMD=$JAVA6_HOME/bin/java
-# export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
-export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export JAVA_CONF_DIR=$JAVA_HOME/conf
 
-export DEX2JAR_HOME=/home/anlijiu/workspace/android反编译/dex2jar/dex2jar-0.0.9.15/
-export JDGUI_HOME=/home/anlijiu/workspace/android反编译/jd-gui-0.3.5/
-export ECLIPSE_HOME=/opt/eclipse
-export M2_HOME=/opt/maven/apache-maven-3.1.1
-export PATH=$PATH:$M2_HOME/bin:$QT_BIN
-#optional  
-export MAVEN_OPTS="-Xms256m -Xmx512m"  
- 
-# export STUDIO_JDK=$OPEN_JDK_HOME
-export STUDIO_JDK=$JAVA8_HOME
-export ANDROID_HOME=/opt/sdk/
-export NDK_HOME=/opt/android-ndk-r10c/
-export ANDROID_NDK_HOME=$NDK_HOME
-PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$NDK_HOME:$DEX2JAR_HOME:$JDGUI_HOME
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_TOOLS=$ANDROID_HOME/platform-tools/
 
-PATH=~/bin:/opt/wine-devel/bin/:$PATH
+export PATH=$PATH:$ANDROID_TOOLS:~/workspace/test/shell
 
-export CLASSPATH=$CLASSPATH:$ANDROID_HOME/tools:$ANDROID_HOME/platforms/android-25/android.jar
+export DEX_2_JAR=$HOME/workspace/android/decompile/dex2jar-2.1-SNAPSHOT
+export PATH=$PATH:$DEX_2_JAR
 
-export GIT_SSH_COMMAND='ssh -o KexAlgorithms=+diffie-hellman-group1-sha1'
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
-# set_gnome_terminal_transparent.sh 85
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export WINE_PATH=/opt/wine-staging/bin
+export PATH="$PATH:$WINE_PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/dist
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
-export NVM_IOJS_ORG_MIRROR=http://npm.taobao.org/mirrors/iojs
-
-NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:$PATH"
-# Unset manpath so we can inherit from /etc/manpath via the `manpath`
-# command
-unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-export PATH=$PATH:$NPM_PACKAGES/bin
-# PS1="\[\e[0;1m\]┌─( \[\e[31;1m\]\u\[\e[0;1m\] ) – ( \[\e[36;1m\]\w\[\e[0;1m\] )\n└──┤ \[\e[0m\]"
-# PS1="┌─[\d][\u@\h:\w]\n└─>"
-nvm use v7.4.0
-rvm use ruby-2.3.1@dream-api
+nvm use v8.5.0
