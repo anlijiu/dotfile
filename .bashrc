@@ -110,12 +110,12 @@ function setTitle {
     echo -e "\033]0;${PWD}\007" 
 }
 
-export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{
-if (length($0) > 14) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF;
-else if (NF>3) print $1 "/" $2 "/.../" $NF;
-else print $1 "/.../" $NF; }
+export MYTITLE='$(echo -n "${PWD}" | awk -F "/" '"'"'{
+if (length($0) > 14) { if (NF>4) print ".../" $(NF-1) "/" $NF;
+else if (NF>3) print "~/" $NF;
+else print ".../" $NF; }
 else print $0;}'"'"')'
-    PS1='$(eval "echo ${MYPS}")$ '
+
 set_prompt () {
     Last_Command=$? # Must come first!
     Blue='\[\e[01;34m\]'
@@ -135,7 +135,7 @@ set_prompt () {
 
     #PS1="$Kahki┌─[\d]$White[$Purple\u@$Green\h:$Blue\w$White]$CloseColor\n$Kahki└─>$Viridity\$ $CloseColor"
     # Add a bright white exit status for the last command
-    PS1="$Kahki┌─ 💪  \D{%Y-%m-%d %a} "
+    PS1="\n$Kahki┌─ 💪  \D{%Y-%m-%d %a} "
 
     # If root, just print the host in red. Otherwise, print the current user
     # and host in green.
@@ -160,7 +160,7 @@ set_prompt () {
 
     # 最后的\033]0;$("pwd") \a 为设置标题
     # PS1+="$CloseColor\n$Kahki└─>$Viridity\$ $CloseColor \033]0;$("pwd") \a"
-    PS1+="$CloseColor \033]0;$(eval "echo ${MYPS}")\a\n$Kahki└─>$Viridity\$ $CloseColor"
+    PS1+="$CloseColor \033]0;$(eval "echo ${MYTITLE}")\a\n$Kahki└─>$Viridity\$ $CloseColor"
 }
 
 

@@ -1,0 +1,13 @@
+notebook tab {
+    background-color: shade(@bg_color, 0.7);
+    border-width: 1px 1px 0px 1px;
+    border-radius:  8px 8px 0px 0px;
+    border-image: none;
+    border-style: solid;
+    border-color: @dark_bg_color;
+}
+
+notebook tab:checked {
+    background-color: @bg_color;
+    border-image: none;
+}
