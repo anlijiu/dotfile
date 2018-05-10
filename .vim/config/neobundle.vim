@@ -7,14 +7,16 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
 \ }
+
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -72,7 +74,7 @@ NeoBundle 'isRuslan/vim-es6-snippets'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'vim-scripts/a.vim'
-NeoBundle "artur-shaik/vim-javacomplete2"
+NeoBundle 'artur-shaik/vim-javacomplete2'
 NeoBundle "ervandew/supertab"
 NeoBundle "gko/vim-coloresque"
 NeoBundle "pangloss/vim-javascript"

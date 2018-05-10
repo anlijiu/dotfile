@@ -211,6 +211,8 @@ alias cdmw='cd ~/workspace/letv/vendor/letv/apps/LetvCarObd'
 alias html2jade='html2jade --donotencode'
 alias grepn='grep --exclude-dir=node_modules'
 
+alias lh='lunch msm8996-userdebug'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -235,13 +237,19 @@ if ! shopt -oq posix; then
   fi
 fi
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64/
 export JAVA_HOME=$JAVA8_HOME
 export JAVA_CONF_DIR=$JAVA_HOME/conf
 
-export ANDROID_HOME=$HOME/Android/Sdk
-export ANDROID_TOOLS=$ANDROID_HOME/platform-tools/
+# export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Android/M01Sdk/android-sdk_eng.anlijiu_linux-x86
+export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/
+export ANDROID_TOOLS=$ANDROID_HOME/tools/
+export ANDROID_PROGUARD_TOOLS=$ANDROID_TOOLS/proguard/bin
 
-export PATH=$PATH:$ANDROID_TOOLS:~/workspace/test/shell
+# export LD_LIBRARY_PATH=$ANDROID_TOOLS/emulator/lib64:$LD_LIBRARY_PATH
+
+export PATH=$PATH:$ANDROID_PLATFORM_TOOLS:$ANDROID_TOOLS:$ANDROID_PROGUARD_TOOLS:~/workspace/test/shell
 
 export DEX_2_JAR=$HOME/workspace/android/decompile/dex2jar-2.1-SNAPSHOT
 export PATH=$PATH:$DEX_2_JAR
@@ -249,11 +257,35 @@ export PATH=$PATH:$DEX_2_JAR
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export FLUTTER_ROOT=$HOME/workspace/flutter/flutter
+export PATH=$PATH:$FLUTTER_ROOT/bin
+
 export WINE_PATH=/opt/wine-staging/bin
 export PATH="$PATH:$WINE_PATH"
+export PATH="$PATH:$HOME/bin"
+
+#esp8266
+export XCC=/home/anlijiu/workspace/esp/esp8266/esp-open-sdk/xtensa-lx106-elf
+export PATH=$XCC/bin:$PATH
+
+#esp32
+export IDF_PATH=/home/anlijiu/workspace/esp/esp32/esp-idf
+export ESP32_XCC=/home/anlijiu/workspace/esp/esp32/xtensa-esp32-elf
+export PATH=$ESP32_XCC/bin:$PATH
+
+export RASPBERRY_TOOL_CHAIN=/home/anlijiu/workspace/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
+export PISYSROOT=/opt/rpi-sysroot
+export PATH=$RASPBERRY_TOOL_CHAIN/bin:$PATH
+
+#cscope 
+# find /my/project/absolute/dir -name '*.c' -o -name '*.h' > $HOME/cscope_db/rpi_kernel/cscope.files
+# cd $HOME/cscope_db/rpi_kernel/
+# cscope -bq
+CSCOPE_DB=$HOME/cscope_db/rpi_kernel/cscope.out; 
+export CSCOPE_DB  
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
-nvm use v8.5.0
+nvm use v8.7.0
