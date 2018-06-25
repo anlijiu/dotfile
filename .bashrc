@@ -212,6 +212,7 @@ alias html2jade='html2jade --donotencode'
 alias grepn='grep --exclude-dir=node_modules'
 
 alias lh='lunch msm8996-userdebug'
+alias cp='rsync --info=progress2 '
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -236,6 +237,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+useproxy() {
+    export HTTP_PROXY='127.0.0.1:1080'
+    export HTTPS_PROXY='127.0.0.1:1080' 
+}
+
+unuseproxy() {
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+}
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64/
 export JAVA_HOME=$JAVA8_HOME
@@ -257,6 +268,9 @@ export PATH=$PATH:$DEX_2_JAR
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# flutter settings
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export FLUTTER_ROOT=$HOME/workspace/flutter/flutter
 export PATH=$PATH:$FLUTTER_ROOT/bin
 
@@ -284,8 +298,10 @@ export PATH=$RASPBERRY_TOOL_CHAIN/bin:$PATH
 CSCOPE_DB=$HOME/cscope_db/rpi_kernel/cscope.out; 
 export CSCOPE_DB  
 
+source $HOME/.bash_profile
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
-nvm use v8.7.0
+nvm use v10.1.0

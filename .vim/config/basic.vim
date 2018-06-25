@@ -287,4 +287,11 @@ map <silent> <leader>4 :diffget 4<CR> :diffupdate<CR>
 " vnoremap <M-k> :m '<-2<CR>gv=gv
 
 
+" resize horzontal split window
+nmap <S-Right> <C-W>><C-W>>
+nmap <S-Left> <C-W><<C-W><
+" resize vertical split window
+nmap <S-Up> <C-W>-<C-W>-
+nmap <S-Down> <C-W>+<C-W>+
+
 "for gradle

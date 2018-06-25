@@ -81,6 +81,8 @@ NeoBundle "pangloss/vim-javascript"
 NeoBundle "mxw/vim-jsx"
 NeoBundle "tpope/vim-unimpaired"
 NeoBundle "drmikehenry/vim-fixkey"
+NeoBundle "udalov/kotlin-vim"
+NeoBundle "dart-lang/dart-vim-plugin"
 "NeoBundle 'marijnh/tern_for_vim'
 call neobundle#end()
 " NeoBundleInstall
