@@ -1,0 +1,160 @@
+holidays:
+  # @attrib https://en.wikipedia.org/wiki/Public_holidays_in_China
+  CN:
+    names:
+      en: China
+      zh: 中华人民共和国
+    dayoff: sunday
+    langs:
+      - zh
+      - en
+    zones:
+      - Asia/Shanghai
+      - Asia/Urumqi
+    days:
+      01-01:
+        type: solar
+        name:
+          en: yuandan
+          zh: 元旦
+        month: 1
+        day: 1
+      03-08:
+        type: solar
+        name:
+          en: Women's Day
+          zh: 三八节
+        month: 3
+        day: 8
+        note: Women
+      05-01:
+        type: solar
+        name:
+          en: Worker's Day
+          zh: 劳动节
+        month: 5
+        day: 4
+      05-04:
+        type: solar
+        month: 5
+        day: 4
+        name:
+          en: Youth Day
+          zh: 青年节
+        note: Youth from the age of 14 to 28
+      06-01:
+        type: solar
+        month: 6
+        day: 1
+        name:
+          en: Children's Day
+          zh: 儿童节
+        note: Children below the age of 14
+      08-01:
+        type: solar
+        month: 8
+        day: 1
+        name:
+          en: Army Day
+          zh: 建军节
+        note: Military personnel in active service
+      10-01:
+        type: solar
+        month: 10
+        day: 1
+        name:
+          en: National Day
+          zh: 国庆节
+          # 1st day of 1st lunar month
+        01-01:
+          type: lunar
+        month: 1
+        day: 1
+        name:
+          en: Spring Festival
+          zh: 春节
+          # 5th day of 5th lunar month
+        05-05:
+          type: lunar
+        month: 5
+        day: 5
+        name:
+          en: Dragon Boat Festival
+          zh: 端午节
+          #15th day of 8th lunar month
+        08-15:
+          type: lunar
+        month: 8
+        day: 15
+        name:
+          en: Mid-Autumn Festival
+          zh: 中秋节
+          # states:
+          # '11':
+          #   name: Beijing
+          # '12':
+          #   name: Tianjin
+          # '13':
+          #   name: Hebei
+          # '14':
+          #   name: Shanxi
+          # '15':
+          #   name: Inner Mongolia
+          # '21':
+          #   name: Liaoning
+          # '22':
+          #   name: Jilin
+          # '23':
+          #   name: Heilongjiang
+          # '31':
+          #   name: Shanghai
+          # '32':
+          #   name: Jiangsu
+          # '33':
+          #   name: Zhejiang
+          # '34':
+          #   name: Anhui
+          # '35':
+          #   name: Fujian
+          # '36':
+          #   name: Jiangxi
+          # '37':
+          #   name: Shandong
+          # '41':
+          #   name: Henan
+          # '42':
+          #   name: Hubei
+          # '43':
+          #   name: Hunan
+          # '44':
+          #   name: Guangdong
+          # '45':
+          #   name: Guangxi
+          # '46':
+          #   name: Hainan
+          # '50':
+          #   name: Chongqing
+          # '51':
+          #   name: Sichuan
+          # '52':
+          #   name: Guizhou
+          # '53':
+          #   name: Yunnan
+          # '54':
+          #   name: Tibet
+          # '61':
+          #   name: Shaanxi
+          # '62':
+          #   name: Gansu
+          # '63':
+          #   name: Qinghai
+          # '64':
+          #   name: Ningxia
+          # '65':
+          #   name: Xinjiang
+          # '71':
+          #   name: Taiwan
+          # '91':
+          #   name: Hong Kong SAR China
+          # '92':
+          #   name: Macau SAR China

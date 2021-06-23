@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# conky -b -c ~/.config/conky/simple_calendar/simple_calendar.conf -d 
+conky -b -c ~/.config/conky/simple_calendar/simple_calendar.conf
+

@@ -1,7 +1,3 @@
-"snippetディレクトリ
-let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
-"snippet展開
-imap <C-y>     <Plug>(neosnippet_expand_or_jump)
-smap <C-y>     <Plug>(neosnippet_expand_or_jump)
-"snippet編集
-noremap es :<C-U>NeoSnippetEdit<CR>
+let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/snippets'

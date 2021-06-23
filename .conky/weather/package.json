@@ -13,6 +13,7 @@
     "download": "^7.1.0",
     "moment": "^2.23.0",
     "node-fetch": "^2.3.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "shelljs": "^0.8.4"
   }
 }

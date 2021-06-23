@@ -7,6 +7,8 @@ year, month, currentday = t.year, t.month, t.day
 
 daystart = os.date("*t",os.time{year=year,month=month,day=01}).wday
 
+print("daystart:"..daystart)
+
 month_name = os.date("%B")
 
 days_in_month = {

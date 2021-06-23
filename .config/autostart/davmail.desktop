@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=DavMail
+Type=Application
+Terminal=false
+Exec=env SWT_GTK3=0 /usr/bin/davmail
+Comment=DavMail POP/IMAP/SMTP/Caldav/Carddav/LDAP Exchange Gateway
+Icon=/usr/share/icons/davmail.png
+Categories=GTK;GNOME;Network;
+Keywords=pop;imap;smtp;exchange;owa;outlook

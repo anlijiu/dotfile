@@ -20,7 +20,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/unite.vim' replaced by Shougo/denite.nvim
+NeoBundle 'Shougo/denite.nvim'
+NeoBundle 'neoclide/denite-git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'BufOnly.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -74,7 +76,7 @@ NeoBundle 'isRuslan/vim-es6-snippets'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'vim-scripts/a.vim'
-NeoBundle 'artur-shaik/vim-javacomplete2'
+" NeoBundle 'artur-shaik/vim-javacomplete2'
 NeoBundle "ervandew/supertab"
 NeoBundle "gko/vim-coloresque"
 NeoBundle "pangloss/vim-javascript"
@@ -83,6 +85,11 @@ NeoBundle "tpope/vim-unimpaired"
 NeoBundle "drmikehenry/vim-fixkey"
 NeoBundle "udalov/kotlin-vim"
 NeoBundle "dart-lang/dart-vim-plugin"
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'jparise/vim-graphql'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'wannesm/wmgraphviz.vim'
+NeoBundle 'lilydjwg/colorizer'
 "NeoBundle 'marijnh/tern_for_vim'
 call neobundle#end()
 " NeoBundleInstall

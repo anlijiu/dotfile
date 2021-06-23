@@ -55,7 +55,6 @@ nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
  
-
 "vim 打开多个文件用tab方式显示buffer
 set switchbuf=useopen,usetab,newtab
 " tab buffer 快捷键 :bfirst, :blast, :sbuffer, :sbnext, :sbprevious
@@ -64,8 +63,12 @@ nnoremap <C-Right> :bnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
-let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
-let g:neocomplcache_force_overwrite_completefunc = 1 "解决Another plugin set completefunc! Disabled neocomplcache这个错误
+"dart
+let g:dart_style_guide = 2
+let g:loaded_syntastic_dart_dartanalyzer_checker = 0
+
+" let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
+" let g:neocomplcache_force_overwrite_completefunc = 1 "解决Another plugin set completefunc! Disabled neocomplcache这个错误
 
 "Sudow 命令在vim里面进入root 保存
 command -nargs=? Sudow :w !sudo tee %
@@ -175,17 +178,24 @@ let g:indentLine_enabled=0
 
 "css 
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 "scss-syntax.vim
 au BufRead,BufNewFile *.scss set ft=scss syntax=scss
 autocmd FileType scss set iskeyword+=-
 
+"mustache
+autocmd BufRead,BufNewFile *.template setfiletype mustache
+
 "es6
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
+"android hal
+" autocmd BufRead,BufNewFile *.hal setfiletype c
 
 autocmd BufRead,BufNewFile *._rb setfiletype ruby
 
 "java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " 横分割時は下へ､ 縦分割時は右へ新しいウィンドウが開くようにする
 set splitbelow
@@ -295,3 +305,39 @@ nmap <S-Up> <C-W>-<C-W>-
 nmap <S-Down> <C-W>+<C-W>+
 
 "for gradle
+"
+"C++ Class Generator                                                                                                    
+function! Class(ClassName)                                                                                              
+    "==================  editing header file =====================
+    let header = a:ClassName.".hpp"
+    :vsp %:h/.hpp
+    call append(0, "#ifndef __".toupper(a:ClassName)."_H__")
+    call append(1, "#define __".toupper(a:ClassName)."_H__")
+    call append(2, " ")                                                                                                  
+    call append(3, "class ".a:ClassName." {")                                                                                
+    call append(4, "public:")                                                                                        
+    call append(5, "    ".a:ClassName."();")                                                                          
+    call append(6, "    virtual ~".a:ClassName."();")                                                                 
+    call append(7, "protected:")
+    call append(8, "private:")
+    call append(9, "};")
+    call append(11,"")
+    call append(10,"#endif // __".toupper(a:ClassName)."_H__")                                                              
+    :execute 'write' header                                                                                             
+    "================== editing source file ========================                                                      
+    let src    = a:ClassName.".cpp"                                                                                     
+    :vsp %:h/.cpp
+    call append(0,"#include \"".a:ClassName.".hpp\"")                                                                          
+    call append(1," ")                                                                                                   
+    call append(2,a:ClassName."::".a:ClassName."()")                                                                           
+    call append(3,"{")                                                                                                   
+    call append(4,"//ctor ")                                                                                             
+    call append(5,"}")                                                                                                   
+    call append(6," ")                                                                                                   
+    call append(7," ")                                                                                                   
+    call append(8,a:ClassName."::~".a:ClassName."()")                                                                         
+    call append(9,"{")                                                                                                   
+    call append(10,"//dtor ")                                                                                            
+    call append(11,"}")                                                                                                  
+    :execute 'write' src
+endfunction    
