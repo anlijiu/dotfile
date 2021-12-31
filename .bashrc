@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# export TERM="xterm-truecolor"
+export COLORTERM="truecolor"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -37,7 +39,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color|*-truecolor) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -192,10 +194,12 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
+    alias grep='grep --color=auto -a --text'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn}'
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -206,7 +210,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias v="vim"
 alias g="gvim"
-alias c='google-chrome  --enable-accelerated-compositing --enable-webgl'
+alias c='google-chrome-stable  --enable-accelerated-compositing --enable-webgl'
 alias f='firefox'
 alias cdmw='cd ~/workspace/letv/vendor/letv/apps/LetvCarObd'
 alias html2jade='html2jade --donotencode'
@@ -296,7 +300,7 @@ export JAVA_CONF_DIR=$JAVA_HOME/conf
 export ANDROID_API_VERSION=29.0.0-rc1
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_EMULATOR=$ANDROID_HOME/emulator
-export ANDROID_NDK=$ANDROID_HOME/ndk/22.0.7026061
+export ANDROID_NDK=$ANDROID_HOME/ndk/23.1.7779620
 export ANDROID_NDK_BIN=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
 export ANDROID_BUILD_TOOL=$ANDROID_HOME/build-tools/$ANDROID_API_VERSION
 export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/
@@ -306,6 +310,7 @@ export ANDROID_SDK_ROOT=$ANDROID_HOME
 
 # export LD_LIBRARY_PATH=$ANDROID_TOOLS/emulator/lib64:$LD_LIBRARY_PATH
 
+export PATH=/home/anlijiu/.local/bin:$PATH
 export PATH=$PATH:$ANDROID_EMULATOR:$ANDROID_PLATFORM_TOOLS:$ANDROID_TOOLS:$ANDROID_PROGUARD_TOOLS:$ANDROID_BUILD_TOOL:~/workspace/test/shell
 export PATH=$ANDROID_NDK:$ANDROID_NDK_BIN:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 
@@ -361,6 +366,9 @@ export PATH=$PATH:$DEX2JAR_PATH
 export DEPOT_TOOLS=/home/anlijiu/workspace/flutter/depot_tools
 export PATH=$PATH:$DEPOT_TOOLS
 
+export FASTDDS=/home/anlijiu/workspace/dds/Fast-DDS-Gen
+export PATH=$PATH:$FASTDDS/scripts
+
 source $HOME/.bash_password
 
 
@@ -374,7 +382,8 @@ export NVM_DIR="$HOME/.nvm"
 ZOOKEEPER=/home/anlijiu/workspace/zookeeper/apache-zookeeper-3.5.6
 PATH=$PATH:$ZOOKEEPER/bin
 export ZOOKEEPER PATH
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/ssl/lib"
 
 export NDDSHOME=$HOME/rti_connext_dds-6.1.0
 source /home/anlijiu/workspace/git-subrepo/.rc 
+. "$HOME/.cargo/env"

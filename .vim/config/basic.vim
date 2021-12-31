@@ -1,14 +1,24 @@
+
+"enable true color 开启16bit真彩色
+if has("termguicolors")
+    set termguicolors
+endif
+
+" syn include /home/anlijiu/.vim/bundle/repos/github.com/gko/vim-coloresque/after/syntax/css/vim-coloresque.vim
+
+
 " "语法高亮
 syntax on
 
 set encoding=utf-8
 
 "色彩
-set t_Co=256
-"colorscheme Tomorrow-Night
 set background=dark
-"colorscheme inkpot
-colorscheme gruvbox 
+" colorscheme pablo
+" colorscheme inkpot
+" colorscheme solarized8
+" colorscheme gruvbox 
+colorscheme atom-dark
 
 " autocmd BufEnter,FileType *
 "             \   elseif &ft ==? 'r' | colorscheme  Tomorrow-Night |
@@ -55,6 +65,22 @@ nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
  
+let g:denops_disable_version_check = 1
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+if dein#tap('ultisnips')
+  " let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/bundle/repos/github.com/SirVer/ultisnips/'
+  " let g:UltiSnipsSnippetDirectories = ['ultisnips']
+  " better key bindings for UltiSnipsExpandTrigger
+  let g:UltiSnipsExpandTrigger = "<tab>"
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+  let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+endif
+
+
 "vim 打开多个文件用tab方式显示buffer
 set switchbuf=useopen,usetab,newtab
 " tab buffer 快捷键 :bfirst, :blast, :sbuffer, :sbnext, :sbprevious
@@ -161,19 +187,30 @@ set helplang=cn
 set ambiwidth=double
 
 "缩进指示  需要安装vim-indent-guides
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors = 1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#404040 ctermbg=234
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3a3a3a ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3a3a3a ctermbg=233
 autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
+
 let g:indent_guides_enable_on_vim_startup = 1
 
-set conceallevel=1
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
 map <leader>il :IndentLinesToggle<CR>
-let g:indentLine_color_gui = '#303030'
-let g:indentLine_enabled=0
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+let g:indentLine_bgcolor_term = 102
+let g:indentLine_bgcolor_gui = '#FF5F00'
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_setColors = 0
 "let g:indentLine_char = '¦'
 
 "css 
@@ -204,8 +241,9 @@ set splitright
 "nnoremap <silent> ,1 :!ruby %<CR>
 map <F4> :w<CR> :!ruby %<CR>
 "noremap <Leader><F4> <ESC>:!ruby %<CR>     "leader 键默认'\' 可通过let mapleader = , 设置
-
-"F10 隐藏 或者 显示 注释
+"
+" :set foldmethod=indent
+" F10 隐藏 或者 显示 注释
 nmap <silent> <F10> :call HideComments() <CR>
 let s:hide_comments = 0
 function! HideComments()
@@ -221,6 +259,7 @@ function! HideComments()
         " :hi! link Comment Comment
         :set fdm=syntax
         set nofoldenable
+        " set foldenable
         echo "Show comments"
     endif
 endfunction
@@ -234,16 +273,16 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " CTRL-hjklでウィンドウ移動
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
 
 " 挿入モードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
 
 " カーソル位置の単語をyankする
 nnoremap vy vawy

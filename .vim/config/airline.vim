@@ -2,9 +2,12 @@
 "vim-airline
 "--------------------------------------------------------------------------
 " let g:airline_theme="molokai" 
+" install powerline fonts:  https://github.com/powerline/fonts
+
 
 set ambiwidth=double
 
+let g:airline_theme='badwolf'
 "这个是安装字体后 必须设置此项" 
 let g:airline_powerline_fonts=1   
 
@@ -21,8 +24,8 @@ nnoremap <C-s-tab> :bp<CR>
 let g:airline#extensions#whitespace#enabled = 0
 " let g:airline#extensions#whitespace#symbol = '!'
 let g:airline#extensions#whitespace#symbol = ''
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 " 设置consolas字体"前面已经设置过
 "set guifont=Consolas\ for\ Powerline\ FixedD:h11
 if !exists('g:airline_symbols')
