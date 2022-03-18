@@ -1,9 +1,4 @@
 
-"enable true color 开启16bit真彩色
-if has("termguicolors")
-    set termguicolors
-endif
-
 " syn include /home/anlijiu/.vim/bundle/repos/github.com/gko/vim-coloresque/after/syntax/css/vim-coloresque.vim
 
 
@@ -13,12 +8,31 @@ syntax on
 set encoding=utf-8
 
 "色彩
-set background=dark
+"set background=dark
 " colorscheme pablo
 " colorscheme inkpot
 " colorscheme solarized8
 " colorscheme gruvbox 
 colorscheme atom-dark
+
+"enable true color 开启16bit真彩色
+if has("termguicolors")
+    " Force transparency
+    " hi! Normal ctermbg=NONE guibg=NONE
+    " hi! NonText ctermbg=NONE guibg=NONE
+    " hi! VertSplit ctermbg=NONE guibg=NONE
+    " hi! LineNr ctermbg=NONE guibg=NONE
+    " " Ale
+    " hi! ALEErrorSign ctermbg=NONE guibg=NONE
+    " hi! ALEWarningSign ctermbg=NONE guibg=NONE
+    " " GitGutter
+    " hi! GitGutterAdd ctermbg=NONE guibg=NONE
+    " hi! GitGutterChange ctermbg=NONE guibg=NONE
+    " hi! GitGutterDelete ctermbg=NONE guibg=NONE
+    " hi! GitGutterChangeDelete ctermbg=NONE guibg=NONE
+    set termguicolors
+endif
+
 
 " autocmd BufEnter,FileType *
 "             \   elseif &ft ==? 'r' | colorscheme  Tomorrow-Night |
@@ -80,6 +94,26 @@ if dein#tap('ultisnips')
   let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 endif
 
+" vim-svelte
+let g:svelte_preprocessor_tags = [
+  \ { 'name': 'postcss', 'tag': 'style', 'as': 'scss' }
+  \ ]
+let g:svelte_preprocessors = ['typescript', 'postcss', 'scss']
+
+" tagbar 适配typescript
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 
 "vim 打开多个文件用tab方式显示buffer
 set switchbuf=useopen,usetab,newtab
@@ -222,6 +256,9 @@ autocmd FileType scss set iskeyword+=-
 
 "mustache
 autocmd BufRead,BufNewFile *.template setfiletype mustache
+
+"svelte
+autocmd BufRead,BufNewFile *.svelte setfiletype svelte
 
 "es6
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript

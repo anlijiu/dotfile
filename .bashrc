@@ -4,6 +4,7 @@
 
 # export TERM="xterm-truecolor"
 export COLORTERM="truecolor"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -318,7 +319,7 @@ export DEX_2_JAR=$HOME/workspace/android/decompile/dex2jar-2.1-SNAPSHOT
 export PATH=$PATH:$DEX_2_JAR
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 export WINE_PATH=/opt/wine-staging/bin
 export PATH="$PATH:$WINE_PATH"
