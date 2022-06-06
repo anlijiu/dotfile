@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+<head>
+<title>FeedReader Subscriptions</title>
+</head>
+<body>
+<outline text="Free Software">
+<outline type="rss" text="Planet GNOME" xmlUrl="http://planet.gnome.org/atom.xml" description="Planet GNOME" htmlUrl="https://planet.gnome.org/atom.xml" />
+</outline>
+<outline text="Games">
+<outline type="rss" text="GamingOnLinux Latest Articles" xmlUrl="https://www.gamingonlinux.com/article_rss.php" description="GamingOnLinux Latest Articles" htmlUrl="https://www.gamingonlinux.com/" />
+</outline>
+<outline text="News">
+<outline type="rss" text="BBC News - Home" xmlUrl="http://feeds.bbci.co.uk/news/rss.xml" description="BBC News - Home" htmlUrl="https://www.bbc.co.uk/news/" />
+</outline>
+<outline text="Technology">
+<outline type="rss" text="Ars Technica" xmlUrl="http://feeds.arstechnica.com/arstechnica/index?format=xml" description="Ars Technica" htmlUrl="https://arstechnica.com" />
+<outline type="rss" text="CNET Topics - Tech Industry" xmlUrl="http://feed.cnet.com/feed/topics/tech-industry" description="CNET Topics - Tech Industry" htmlUrl="https://www.cnet.com/topics/tech-industry#ftag=CAD-01-10aai3d" />
+<outline type="rss" text="Golem.de" xmlUrl="http://rss.golem.de/rss.php?feed=ATOM1.0" description="Golem.de" htmlUrl="https://rss.golem.de/rss.php?feed=ATOM1.0" />
+<outline type="rss" text="Hacker News: Newest" xmlUrl="https://hnrss.org/newest" description="Hacker News: Newest" htmlUrl="https://news.ycombinator.com/newest" />
+</outline>
+<outline text="google">
+<outline type="rss" text="Google Online Security Blog" xmlUrl="http://feeds.feedburner.com/GoogleOnlineSecurityBlog" description="Google Online Security Blog" htmlUrl="http://security.googleblog.com/" />
+</outline>
+<outline text="rust">
+<outline type="rss" text="Rust Blog" xmlUrl="http://blog.rust-lang.org/feed.xml" description="Rust Blog" htmlUrl="https://blog.rust-lang.org/feed.xml" />
+<outline type="rss" text="Turreta" xmlUrl="http://turreta.com/feed" description="Turreta" htmlUrl="https://turreta.com" />
+</outline>
+<outline text="Android">
+<outline type="rss" text="Android Developers Blog" xmlUrl="http://feeds.feedburner.com/blogspot/hsDu" description="Android Developers Blog" htmlUrl="http://android-developers.googleblog.com/" />
+</outline>
+<outline text="css">
+<outline type="rss" text="CSS-Tricks" xmlUrl="http://css-tricks.com/feed" description="CSS-Tricks" htmlUrl="https://css-tricks.com" />
+</outline>
+<outline text="react">
+<outline type="rss" text="React" xmlUrl="http://reactjs.org/feed.xml" description="React" htmlUrl="https://reactjs.org" />
+</outline>
+<outline text="design">
+<outline type="rss" text="Design Shack" xmlUrl="http://designshack.net/feed " description="Design Shack" htmlUrl="https://designshack.net" />
+</outline>
+<outline text="web dev">
+</outline>
+<outline text="mobile dev">
+<outline type="rss" text="Peerbits" xmlUrl="http://peerbits.com/feed" description="Peerbits" htmlUrl="https://www.peerbits.com" />
+<outline type="rss" text="vervelogic.com/blog" xmlUrl="http://vervelogic.com/blog/feed" description="vervelogic.com/blog" htmlUrl="https://www.vervelogic.com/blog" />
+<outline type="rss" text="App Developer Magazine" xmlUrl="http://appdevelopermagazine.com/RSS" description="App Developer Magazine" htmlUrl="https://appdevelopermagazine.com/news" />
+<outline type="rss" text="Mobile Dev Memo by Eric Seufert" xmlUrl="http://mobiledevmemo.com/feed" description="Mobile Dev Memo by Eric Seufert" htmlUrl="https://mobiledevmemo.com" />
+</outline>
+</body>
+</opml>

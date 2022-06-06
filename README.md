@@ -14,4 +14,6 @@ python3 install.py --all
 vim
 :call dein#recache_runtimepath()
 
-
+https://gitlab.gnome.org/hub/feedreader-export.git
+cargo run -- --output feeds.opml ~/.local/share/feedreader/data/feedreader-7.db
+导出 feedreader opml
