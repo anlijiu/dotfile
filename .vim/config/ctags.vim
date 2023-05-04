@@ -5,7 +5,14 @@
 
 set tags=tags;
 nmap <c-]> g<c-]> 
-"set tags+=.tags
+set tags+=~/disk/esp/esp-idf/components/tags
+
+" sudo ctags -R --c++-kinds=+p --fields=+iaS -I G_GNUC_NULL_TERMINATED -I G_GNUC_CONST  -f tags /usr/include/
+set tags+=/usr/include/tags
+
+" cd ~/workspace/flutter/flutter/bin/cache/artifacts/engine/linux-x64-release
+" ctags -R --c++-kinds=+p --fields=+iaS -I G_GNUC_NULL_TERMINATED -I G_GNUC_CONST
+set tags+=~/workspace/flutter/flutter/bin/cache/artifacts/engine/linux-x64-release/tags
 "set tags+=.Gemfile.lock.tags
 
 "nnoremap <silent> ,tg :TagsGenerate<CR>

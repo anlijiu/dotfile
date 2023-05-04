@@ -1,3 +1,6 @@
+" log太占空间， 关闭绝大部分log
+let g:ycm_server_log_level = 'critical'
+
 let g:ycm_global_ycm_extra_conf='/home/anlijiu/.vim/config/.ycm_extra_conf.py'
 let g:ycm_clangd_binary_path = "/home/anlijiu/.vim/bundle/repos/github.com/ycm-core/YouCompleteMe/third_party/ycmd/third_party/clangd/output/bin/clangd"
 let g:ycm_min_num_of_chars_for_completion=1

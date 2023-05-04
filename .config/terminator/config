@@ -1,10 +1,25 @@
 [global_config]
   focus = system
-  suppress_multiple_term_dialog = True
-  title_font = Fantasque Sans Mono 17
+  scroll_tabbar = True
   title_transmit_bg_color = "#d30102"
+  suppress_multiple_term_dialog = True
   title_use_system_font = False
+  title_font = Fantasque Sans Mono 17
 [keybindings]
+[profiles]
+  [[default]]
+    background_color = "#2d2d2d"
+    background_darkness = 0.89
+    background_type = transparent
+    cursor_color = "#8D8D8D"
+    font = Fantasque Sans Mono 16
+    foreground_color = "#eee9e9"
+    show_titlebar = False
+    scrollback_lines = 20000
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
+    use_system_font = False
+    copy_on_selection = True
+    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -15,17 +30,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#2d2d2d"
-    background_darkness = 0.95
-    background_image = None
-    background_type = transparent
-    copy_on_selection = True
-    cursor_color = "#8D8D8D"
-    font = Fantasque Sans Mono 16
-    foreground_color = "#eee9e9"
-    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
-    scrollback_lines = 20000
-    show_titlebar = False
-    use_system_font = False

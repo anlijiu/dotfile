@@ -8,17 +8,20 @@ syntax on
 set encoding=utf-8
 
 "色彩
-"set background=dark
+set background=dark
+"set background=light
 " colorscheme pablo
 " colorscheme inkpot
 " colorscheme solarized8
 " colorscheme gruvbox 
-colorscheme atom-dark
+" colorscheme atom-dark
+" colorscheme onedark
+colorscheme PaperColor
 
 "enable true color 开启16bit真彩色
 if has("termguicolors")
-    " Force transparency
-    " hi! Normal ctermbg=NONE guibg=NONE
+    " Force transparency 透明
+    hi! Normal ctermbg=NONE guibg=NONE
     " hi! NonText ctermbg=NONE guibg=NONE
     " hi! VertSplit ctermbg=NONE guibg=NONE
     " hi! LineNr ctermbg=NONE guibg=NONE
@@ -33,6 +36,9 @@ if has("termguicolors")
     set termguicolors
 endif
 
+" copilot.vim
+imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " autocmd BufEnter,FileType *
 "             \   elseif &ft ==? 'r' | colorscheme  Tomorrow-Night |
@@ -79,6 +85,11 @@ nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
  
+" 折叠， markdown不折叠
+let g:markdown_folding = 0
+let g:fastfold_savehook = 0
+let g:vim_markdown_folding_disabled = 1
+
 let g:denops_disable_version_check = 1
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -250,6 +261,7 @@ let g:indentLine_setColors = 0
 "css 
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 "scss-syntax.vim
 au BufRead,BufNewFile *.scss set ft=scss syntax=scss
 autocmd FileType scss set iskeyword+=-

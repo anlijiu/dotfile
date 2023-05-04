@@ -200,38 +200,40 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn}'
+alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn,target}'
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias sudo='sudo PATH="$PATH" HOME="$HOME" LD_LIBRARY_PATH="$LD_LIBRARY_PATH"'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias v="vim"
 alias g="gvim"
-alias c='google-chrome-stable  --enable-accelerated-compositing --enable-webgl'
+alias c='google-chrome --enable-accelerated-compositing --enable-webgl'
 alias f='firefox'
 alias cdmw='cd ~/workspace/letv/vendor/letv/apps/LetvCarObd'
 alias html2jade='html2jade --donotencode'
 alias grepn='grep --exclude-dir=node_modules'
-alias cdhu='cd /home/anlijiu/workspace/fuxi/pangu/system/LINUX/android'
-alias cdsuiren='cd /home/anlijiu/workspace/fuxi/suiren/system/LINUX/android'
-alias cdvhal='cd /home/anlijiu/workspace/fuxi/pangu/system/LINUX/android/hardware/interfaces/automotive/vehicle/2.0/'
-alias cdvhalsuiren='cd /home/anlijiu/workspace/fuxi/suiren/system/LINUX/android/hardware/interfaces/automotive/vehicle/2.0/'
-alias cdhuapp='cd /home/anlijiu/workspace/fuxi/pangu/apps/LINUX/android/vendor/fuxi/packages/src/apps'
-alias cdhuappsuiren='cd /home/anlijiu/workspace/fuxi/suiren/apps/LINUX/android/vendor/fuxi/packages/src/apps'
-alias cdhucar='cd /home/anlijiu/workspace/fuxi/pangu/system/LINUX/android/packages/services/Car/'
-alias cdhucarsuiren='cd /home/anlijiu/workspace/fuxi/suiren/system/LINUX/android/packages/services/Car/'
-alias cdrse='cd /home/anlijiu/data/fuxi-rse-aosp/LINUX/android'
-alias cdrsecar='cd /home/anlijiu/data/fuxi-rse-aosp/LINUX/android/packages/services/Car'
-alias cddashboard='cd /home/anlijiu/workspace/fuxi/pangu/LINUX/android/frameworks/base/services/core/java/com/android/server/dashboard/'
+alias cdhu='cd $HOME/workspace/fuxi/pangu/system/LINUX/android'
+alias cdsuiren='cd $HOME/workspace/fuxi/suiren/system/LINUX/android'
+alias cdvhal='cd $HOME/workspace/fuxi/pangu/system/LINUX/android/hardware/interfaces/automotive/vehicle/2.0/'
+alias cdvhalsuiren='cd $HOME/workspace/fuxi/suiren/system/LINUX/android/hardware/interfaces/automotive/vehicle/2.0/'
+alias cdhuapp='cd $HOME/workspace/fuxi/pangu/apps/LINUX/android/vendor/fuxi/packages/src/apps'
+alias cdhuappsuiren='cd $HOME/workspace/fuxi/suiren/apps/LINUX/android/vendor/fuxi/packages/src/apps'
+alias cdhucar='cd $HOME/workspace/fuxi/pangu/system/LINUX/android/packages/services/Car/'
+alias cdhucarsuiren='cd $HOME/workspace/fuxi/suiren/system/LINUX/android/packages/services/Car/'
+alias cdrse='cd $HOME/data/fuxi-rse-aosp/LINUX/android'
+alias cdrsecar='cd $HOME/data/fuxi-rse-aosp/LINUX/android/packages/services/Car'
+alias cddashboard='cd $HOME/workspace/fuxi/pangu/LINUX/android/frameworks/base/services/core/java/com/android/server/dashboard/'
+alias rustc='rustc --out-dir out'
 
 
-alias cdui='cd /home/anlijiu/projhub/react-ssr/'
-alias cdpj='cd /home/anlijiu/projhub/service-project/'
-alias cduser='cd /home/anlijiu/projhub/service-user/'
+alias cdui='cd $HOME/projhub/react-ssr/'
+alias cdpj='cd $HOME/projhub/service-project/'
+alias cduser='cd $HOME/projhub/service-user/'
 
 alias lh='lunch msm8996-userdebug'
 # alias cp='rsync --info=progress2 '
@@ -290,6 +292,7 @@ detection_cat ()
 }
 
 export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 export GOPROXY=https://goproxy.io,direct
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64/
@@ -301,7 +304,8 @@ export JAVA_CONF_DIR=$JAVA_HOME/conf
 export ANDROID_API_VERSION=29.0.0-rc1
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_EMULATOR=$ANDROID_HOME/emulator
-export ANDROID_NDK=$ANDROID_HOME/ndk/23.1.7779620
+export ANDROID_NDK=$ANDROID_HOME/ndk/25.0.8528842
+export NDK_HOME=$ANDROID_NDK
 export ANDROID_NDK_BIN=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
 export ANDROID_BUILD_TOOL=$ANDROID_HOME/build-tools/$ANDROID_API_VERSION
 export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/
@@ -311,11 +315,12 @@ export ANDROID_SDK_ROOT=$ANDROID_HOME
 
 # export LD_LIBRARY_PATH=$ANDROID_TOOLS/emulator/lib64:$LD_LIBRARY_PATH
 
-export PATH=/home/anlijiu/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$ANDROID_EMULATOR:$ANDROID_PLATFORM_TOOLS:$ANDROID_TOOLS:$ANDROID_PROGUARD_TOOLS:$ANDROID_BUILD_TOOL:~/workspace/test/shell
-export PATH=$ANDROID_NDK:$ANDROID_NDK_BIN:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+export PATH=$ANDROID_NDK:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+# $ANDROID_NDK_BIN:
 
-export DEX_2_JAR=$HOME/workspace/android/decompile/dex2jar-2.1-SNAPSHOT
+export DEX_2_JAR=/home/an/workspace/android/tools/dex2jar/dex-tools/build/distributions/dex-tools-2.2-SNAPSHOT
 export PATH=$PATH:$DEX_2_JAR
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -329,15 +334,21 @@ export PATH="$PATH:$HOME/bin"
 export KAFKA=$HOME/workspace/kafka/kafka_2.12-2.4.0
 
 #esp8266
-export XCC=/home/anlijiu/workspace/esp/esp8266/xtensa-lx106-elf
+export XCC=$HOME/workspace/esp/esp8266/xtensa-lx106-elf
 export PATH=$XCC/bin:$PATH
 
 #esp32
-export IDF_PATH=/home/anlijiu/workspace/esp/esp32/esp-idf
-export ESP32_XCC=/home/anlijiu/workspace/esp/esp32/xtensa-esp32-elf
+alias idf='. $HOME/workspace/esp/esp32/esp-idf/export.sh'
+export IDF_PATH=$HOME/workspace/esp/esp32/esp-idf
+export ESP32_XCC=$HOME/workspace/esp/esp32/xtensa-esp32-elf
 export PATH=$ESP32_XCC/bin:$IDF_PATH/tools:$PATH
 
-export RASPBERRY_TOOL_CHAIN=/home/anlijiu/workspace/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
+
+# hozon
+alias 74='ssh anlijiu@10.5.7.74'
+alias 67='ssh anlijiu@10.5.7.67'
+
+export RASPBERRY_TOOL_CHAIN=$HOME/workspace/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
 export PISYSROOT=/opt/rpi-sysroot
 export PATH=$RASPBERRY_TOOL_CHAIN/bin:$PATH
 
@@ -361,30 +372,51 @@ export PUPPETEER_EXECUTABLE_PATH=$HOME/program/chrome-linux/chrome
 export YARN_GLOBAL_PATH=$HOME/.config/yarn/global/node_modules/.bin
 export PATH=$PATH:$YARN_GLOBAL_PATH
 
-export DEX2JAR_PATH=/home/anlijiu/workspace/android/decompile/dex2jar/bin/dex-tools-2.1-SNAPSHOT
+export DEX2JAR_PATH=$HOME/workspace/android/decompile/dex2jar/bin/dex-tools-2.1-SNAPSHOT
 export PATH=$PATH:$DEX2JAR_PATH
 
-export DEPOT_TOOLS=/home/anlijiu/workspace/flutter/depot_tools
+export DEPOT_TOOLS=$HOME/workspace/flutter/depot_tools
+export FLUTTER_ROOT=$HOME/workspace/flutter/flutter
 export PATH=$PATH:$DEPOT_TOOLS
 
-export FASTDDS=/home/anlijiu/workspace/dds/Fast-DDS-Gen
+export FASTDDS=$HOME/workspace/dds/Fast-DDS-Gen
 export PATH=$PATH:$FASTDDS/scripts
 
 source $HOME/.bash_password
 
 
-. /home/anlijiu/torch/install/bin/torch-activate
+. $HOME/torch/install/bin/torch-activate
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-ZOOKEEPER=/home/anlijiu/workspace/zookeeper/apache-zookeeper-3.5.6
+ZOOKEEPER=$HOME/workspace/zookeeper/apache-zookeeper-3.5.6
 PATH=$PATH:$ZOOKEEPER/bin
+
+# dart pub global activate riverpod_cli
+# 安装的bin目录
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 export ZOOKEEPER PATH
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/ssl/lib"
 
 export NDDSHOME=$HOME/rti_connext_dds-6.1.0
-source /home/anlijiu/workspace/git-subrepo/.rc 
+source $HOME/workspace/git-subrepo/.rc 
 . "$HOME/.cargo/env"
+
+# https://android.googlesource.com/platform/build/+/master/Changes.md#PATH_Tools
+# 跳过编译aosp的时候 Disallowed PATH tool xxx  错误
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+
+export PATH=$HOME/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/an/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# rustup
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+# rustup end

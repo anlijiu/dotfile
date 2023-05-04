@@ -4,7 +4,7 @@ endif
 
 " Required:
 " Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein
+set runtimepath^=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " 手动清除cache: call dein#recache_runtimepath()
 " 位置: .vim/config/bundle/.cache/.vimrc/.dein/
@@ -18,6 +18,8 @@ if dein#load_state('~/.cache/dein')
     """""""""""""""  color theme """"""""""""""  
     call dein#add("morhetz/gruvbox")
     call dein#add("lifepillar/vim-solarized8")
+    call dein#add('joshdick/onedark.vim')
+    call dein#add('NLKNguyen/papercolor-theme')
     " call dein#add('dracula/dracula-theme')
     " call dein#add('altercation/vim-colors-solarized')
     
@@ -32,6 +34,8 @@ if dein#load_state('~/.cache/dein')
     """"""""""""""" 折叠 fold """"""""""""""""""""""""""
     call dein#add('Konfekt/FastFold')
     
+    """"""""""""""" copilot """"""""""""""""""""""""""
+    call dein#add('github/copilot.vim')
     
     """""""""""""""  file explore """"""""""""""  
     call dein#add('scrooloose/nerdtree')
@@ -90,8 +94,10 @@ if dein#load_state('~/.cache/dein')
     "dark powered shell interface for vim
     call dein#add('Shougo/deol.nvim')
 
-    " Ctags generator for Vim
-    call dein#add('szw/vim-tags')
+    " replace vim-tags with vim-gutentags 
+    " call dein#add('szw/vim-tags')
+    call dein#add('ludovicchabant/vim-gutentags')
+    call dein#add('skywind3000/vim-quickui')
 
     " EditorConfig plugin for Vim
     call dein#add('editorconfig/editorconfig-vim')
@@ -163,11 +169,16 @@ if dein#load_state('~/.cache/dein')
     call dein#add("MaxMEllon/vim-jsx-pretty")
     call dein#add("tpope/vim-unimpaired")
 
+    "svelte 语法
+    call dein#add("evanleck/vim-svelte")
+
     "就是这个fixkey的插件导致每次打开一个有内容的新文件都会直接将第一行的最后一个字符替换成0, 不知道为什么，也不知道怎么找原因
     "call dein#add("drmikehenry/vim-fixkey")
 
     call dein#add("udalov/kotlin-vim")
     call dein#add("dart-lang/dart-vim-plugin")
+    call dein#add("thosakwe/vim-flutter")
+    call dein#add("vim-scripts/gtk-vim-syntax")
     call dein#add('leafgarland/typescript-vim')
     call dein#add('jparise/vim-graphql')
     call dein#add('wannesm/wmgraphviz.vim')
