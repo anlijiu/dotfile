@@ -1,6 +1,8 @@
 
 " syn include /home/anlijiu/.vim/bundle/repos/github.com/gko/vim-coloresque/after/syntax/css/vim-coloresque.vim
 
+let $HTTP_PROXY = "http://127.0.0.1:8099"
+let $HTTPS_PROXY = "http://127.0.0.1:8099"
 
 " "语法高亮
 syntax on
@@ -46,8 +48,8 @@ let g:copilot_no_tab_map = v:true
 "             \   endif
 "
 " set guifont=Ricty-RegularForPowerline:h16
-" set guifont="Fantasque Sans Mono 17"
-set guifont="Literation Mono Powerline h16"
+set guifont="Fantasque Sans Mono 17"
+" set guifont="Literation Mono Powerline h16"
 
 set helplang=zh
 
@@ -92,8 +94,8 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:denops_disable_version_check = 1
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 if dein#tap('ultisnips')
@@ -274,6 +276,14 @@ autocmd BufRead,BufNewFile *.svelte setfiletype svelte
 
 "es6
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
+"https://github.com/weirongxu/coc-markdown-preview-enhanced
+"https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+autocmd BufNewFile,BufRead *.json set filetype=json
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 "android hal
 " autocmd BufRead,BufNewFile *.hal setfiletype c

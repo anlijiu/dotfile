@@ -133,7 +133,22 @@ if dein#load_state('~/.cache/dein')
 
     " markdown 浏览器
     "npm -g install instant-markdown-d@next
-    call dein#add('suan/vim-instant-markdown')
+    " call dein#add('suan/vim-instant-markdown')
+    " cd ~/.vim/bundle/repos/github.com/iamcco/
+    " gitc iamcco/markdown-preview.nvim
+    " cd markdown-preview.nvim/app
+    " yarn install
+    " call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					"\ 'build': 'sh -c "cd app && yarn install"' })
+
+    " 对于markdown-preview-enhanced 来说 ，需要依赖coc.nvim 和 coc-webview
+    " cd ~/.deno/bin 
+    " 下载 https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip 到 ~/.deno/bin
+    " unzip deno-x86_64-unknown-linux-gnu.zip
+    call dein#add('neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'})
+    call dein#add('weirongxu/coc-webview')
+    call dein#add('shd101wyy/markdown-preview-enhanced')
+    call dein#add('neoclide/jsonc.vim')
     
     "vim识别rgb,hsl,named colors颜色
     call dein#add("gko/vim-coloresque")
@@ -144,7 +159,7 @@ if dein#load_state('~/.cache/dein')
 
 
     """""""""""""""  code complete """"""""""""""  
-    call dein#add('ycm-core/YouCompleteMe', {'build': 'python3 install.py --clangd-completer', 'merged': 1})
+    " call dein#add('ycm-core/YouCompleteMe', {'build': 'python3 install.py --clangd-completer', 'merged': 1})
     " 受不了这个补全enter就直接选择了
     " call dein#add('Shougo/ddc.vim')
     call dein#add('Shougo/ddu.vim')
