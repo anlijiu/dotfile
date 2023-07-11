@@ -304,7 +304,7 @@ export JAVA_CONF_DIR=$JAVA_HOME/conf
 export ANDROID_API_VERSION=29.0.0-rc1
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_EMULATOR=$ANDROID_HOME/emulator
-export ANDROID_NDK=$ANDROID_HOME/ndk/25.0.8528842
+export ANDROID_NDK=$ANDROID_HOME/ndk/25.2.9519653
 export NDK_HOME=$ANDROID_NDK
 export ANDROID_NDK_BIN=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
 export ANDROID_BUILD_TOOL=$ANDROID_HOME/build-tools/$ANDROID_API_VERSION
@@ -347,6 +347,10 @@ export PATH=$ESP32_XCC/bin:$IDF_PATH/tools:$PATH
 # hozon
 alias 74='ssh anlijiu@10.5.7.74'
 alias 67='ssh anlijiu@10.5.7.67'
+
+# minicom
+alias mcuSer='sudo minicom -D /dev/ttyUSB0 -b 115200'
+alias socSer='sudo minicom -D /dev/ttyUSB0 -b 921600'
 
 export RASPBERRY_TOOL_CHAIN=$HOME/workspace/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
 export PISYSROOT=/opt/rpi-sysroot
