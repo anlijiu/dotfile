@@ -1,8 +1,8 @@
 
 " syn include /home/anlijiu/.vim/bundle/repos/github.com/gko/vim-coloresque/after/syntax/css/vim-coloresque.vim
 
-let $HTTP_PROXY = "http://127.0.0.1:8099"
-let $HTTPS_PROXY = "http://127.0.0.1:8099"
+let $HTTP_PROXY = "http://127.0.0.1:9098"
+let $HTTPS_PROXY = "http://127.0.0.1:9098"
 
 " "语法高亮
 syntax on
@@ -148,6 +148,11 @@ command -nargs=? Sudow :w !sudo tee %
 
 "让js文件也和jsx文件一样对react jsx缩进高亮
 let g:jsx_ext_required = 0
+
+" tags cache 路径  ludovicchabant/vim-gutentags
+if exists('g:gutentags_cache_dir') == 0
+	let g:gutentags_cache_dir = expand('~/.cache/tags')
+endif
 
 "swp文件
 set swapfile

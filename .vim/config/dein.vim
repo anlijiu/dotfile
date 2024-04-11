@@ -145,9 +145,9 @@ if dein#load_state('~/.cache/dein')
     " cd ~/.deno/bin 
     " 下载 https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip 到 ~/.deno/bin
     " unzip deno-x86_64-unknown-linux-gnu.zip
-    call dein#add('neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'})
+    call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'npm ci' })
     call dein#add('weirongxu/coc-webview')
-    call dein#add('shd101wyy/markdown-preview-enhanced')
+    call dein#add('weirongxu/coc-markdown-preview-enhanced')
     call dein#add('neoclide/jsonc.vim')
     
     "vim识别rgb,hsl,named colors颜色
@@ -195,6 +195,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add("thosakwe/vim-flutter")
     call dein#add("vim-scripts/gtk-vim-syntax")
     call dein#add('leafgarland/typescript-vim')
+    call dein#add('wuelnerdotexe/vim-astro')
     call dein#add('jparise/vim-graphql')
     call dein#add('wannesm/wmgraphviz.vim')
 

@@ -11,5 +11,6 @@ source ~/.vim/config/supertab.vim
 source ~/.vim/config/basic.vim
 source ~/.vim/config/airline.vim
 source ~/.vim/config/markdown.vim
+source ~/.vim/config/coc.vim
 
 filetype plugin indent on

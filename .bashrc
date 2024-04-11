@@ -200,7 +200,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn,target}'
+alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn,target} --exclude="tags"'
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -263,12 +263,12 @@ if ! shopt -oq posix; then
 fi
 
 useproxy() {
-    export HTTP_PROXY='socks5h://127.0.0.1:1080'
-    export HTTPS_PROXY='socks5h://127.0.0.1:1080' 
-    export http_proxy='socks5h://127.0.0.1:1080'
-    export https_proxy='socks5h://127.0.0.1:1080' 
-    export ALL_PROXY='socks5h://127.0.0.1:1080' 
-    export all_proxy='socks5h://127.0.0.1:1080' 
+    export HTTP_PROXY='http://127.0.0.1:9098'
+    export HTTPS_PROXY='https://127.0.0.1:9098' 
+    export http_proxy='http://127.0.0.1:9098'
+    export https_proxy='https://127.0.0.1:9098' 
+    export ALL_PROXY='http://127.0.0.1:9098' 
+    export all_proxy='http://127.0.0.1:9098' 
 }
 
 cp23() {
@@ -295,16 +295,17 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export GOPROXY=https://goproxy.io,direct
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export JAVA18_HOME=/usr/lib/jvm/java-18-openjdk-amd64/
 export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64/
 export JAVA11_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
-export JAVA_HOME=$JAVA8_HOME
+export JAVA_HOME=$JAVA18_HOME
 export JAVA_CONF_DIR=$JAVA_HOME/conf
 
 # export ANDROID_HOME=$HOME/Android/Sdk
-export ANDROID_API_VERSION=29.0.0-rc1
+export ANDROID_API_VERSION=34.0.0
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_EMULATOR=$ANDROID_HOME/emulator
-export ANDROID_NDK=$ANDROID_HOME/ndk/25.2.9519653
+export ANDROID_NDK=$ANDROID_HOME/ndk/26.1.10909125
 export NDK_HOME=$ANDROID_NDK
 export ANDROID_NDK_BIN=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/
 export ANDROID_BUILD_TOOL=$ANDROID_HOME/build-tools/$ANDROID_API_VERSION
@@ -340,7 +341,8 @@ export PATH=$XCC/bin:$PATH
 #esp32
 alias idf='. $HOME/workspace/esp/esp32/esp-idf/export.sh'
 export IDF_PATH=$HOME/workspace/esp/esp32/esp-idf
-export ESP32_XCC=$HOME/workspace/esp/esp32/xtensa-esp32-elf
+# export ESP32_XCC=$HOME/workspace/esp/esp32/xtensa-esp32-elf
+export ESP32_XCC=$HOME/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/
 export PATH=$ESP32_XCC/bin:$IDF_PATH/tools:$PATH
 
 
@@ -373,8 +375,8 @@ export PUPPETEER_EXECUTABLE_PATH=$HOME/program/chrome-linux/chrome
 
 
 
-export YARN_GLOBAL_PATH=$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$YARN_GLOBAL_PATH
+# export YARN_GLOBAL_PATH=$HOME/.config/yarn/global/node_modules/.bin
+# export PATH=$PATH:$YARN_GLOBAL_PATH
 
 export DEX2JAR_PATH=$HOME/workspace/android/decompile/dex2jar/bin/dex-tools-2.1-SNAPSHOT
 export PATH=$PATH:$DEX2JAR_PATH
@@ -391,9 +393,9 @@ source $HOME/.bash_password
 
 . $HOME/torch/install/bin/torch-activate
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 ZOOKEEPER=$HOME/workspace/zookeeper/apache-zookeeper-3.5.6
