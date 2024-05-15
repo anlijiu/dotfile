@@ -341,7 +341,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
 {
-    name='fs_used_perc',           arg='/home/anlijiu/data',                     max_value=100,
+    name='fs_used_perc',           arg='/home/an',                     max_value=100,
     x=disk_x,                      y=disk_y,
     graph_radius=53,
     graph_thickness=7,
@@ -357,7 +357,7 @@ gauge = {
     graduation_thickness=0,        graduation_mark_thickness=2,
     graduation_unit_angle=27,
     graduation_fg_colour=0xFFFFFF, graduation_fg_alpha=0.3,
-    caption='Data',
+    caption='Home',
     caption_weight=1,              caption_size=12.0,
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
