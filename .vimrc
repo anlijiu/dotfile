@@ -7,7 +7,6 @@ source ~/.vim/config/ctags.vim
 source ~/.vim/config/caw.vim
 source ~/.vim/config/other.vim
 source ~/.vim/config/android.vim
-source ~/.vim/config/supertab.vim
 source ~/.vim/config/basic.vim
 source ~/.vim/config/airline.vim
 source ~/.vim/config/markdown.vim

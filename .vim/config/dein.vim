@@ -28,14 +28,11 @@ if dein#load_state('~/.cache/dein')
     """"""""""""""" Delete all the buffers except the current/named buffer
     call dein#add('vim-scripts/BufOnly.vim')
 
-    """"""""""""""" Syntax checking hacks for vim """"""""""""""  
-    call dein#add('scrooloose/syntastic')
-
     """"""""""""""" 折叠 fold """"""""""""""""""""""""""
     call dein#add('Konfekt/FastFold')
     
     """"""""""""""" copilot """"""""""""""""""""""""""
-    call dein#add('github/copilot.vim')
+    " call dein#add('github/copilot.vim')
     
     """""""""""""""  file explore """"""""""""""  
     call dein#add('scrooloose/nerdtree')
@@ -162,15 +159,16 @@ if dein#load_state('~/.cache/dein')
     " call dein#add('ycm-core/YouCompleteMe', {'build': 'python3 install.py --clangd-completer', 'merged': 1})
     " 受不了这个补全enter就直接选择了
     " call dein#add('Shougo/ddc.vim')
-    call dein#add('Shougo/ddu.vim')
-    call dein#add('vim-denops/denops.vim')
-    call dein#add('Shougo/deoppet.nvim')
+    " call dein#add('Shougo/ddu.vim')
+    " call dein#add('vim-denops/denops.vim')
+    " call dein#add('Shougo/deoppet.nvim')
+    " call dein#add('artur-shaik/vim-javacomplete2')
+    " call dein#add("ervandew/supertab")
 
     " gradle file type
     call dein#add("tfnico/vim-gradle")
 
     " snippets
-    call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
 
     call dein#add('isRuslan/vim-es6')
@@ -178,11 +176,15 @@ if dein#load_state('~/.cache/dein')
     call dein#add('fatih/vim-go')
 
     call dein#add('vim-scripts/a.vim')
-    " call dein#add('artur-shaik/vim-javacomplete2')
-    call dein#add("ervandew/supertab")
+
+    " javascript
     call dein#add("pangloss/vim-javascript")
+
+    " JSX highlighting
     call dein#add("MaxMEllon/vim-jsx-pretty")
-    call dein#add("tpope/vim-unimpaired")
+    
+    " 括号成对 映射
+    "call dein#add("tpope/vim-unimpaired")
 
     "svelte 语法
     call dein#add("evanleck/vim-svelte")
@@ -190,13 +192,28 @@ if dein#load_state('~/.cache/dein')
     "就是这个fixkey的插件导致每次打开一个有内容的新文件都会直接将第一行的最后一个字符替换成0, 不知道为什么，也不知道怎么找原因
     "call dein#add("drmikehenry/vim-fixkey")
 
+    "kotlin
     call dein#add("udalov/kotlin-vim")
+
+    "dart
     call dein#add("dart-lang/dart-vim-plugin")
+
+    " flutter
     call dein#add("thosakwe/vim-flutter")
-    call dein#add("vim-scripts/gtk-vim-syntax")
+
+    " highlight for gtk glib
+    " call dein#add("vim-scripts/gtk-vim-syntax")
+
+    " typescript
     call dein#add('leafgarland/typescript-vim')
+
+    " astrojs
     call dein#add('wuelnerdotexe/vim-astro')
+
+    " graphql
     call dein#add('jparise/vim-graphql')
+
+    "  Graphviz
     call dein#add('wannesm/wmgraphviz.vim')
 
   call dein#end()
