@@ -8,6 +8,8 @@ function string.starts(String,Start)
 end
 
 require 'cairo'
+require 'cairo_xlib'
+
 local sxtwl = require("sxtwl")
 local lunar = sxtwl.Lunar()
 
@@ -24,18 +26,18 @@ else
 end
 print("holiday:"..holiday.holidays.CN.names.zh)
 
--- function awesome_next(t, k)
---     k, t = next(t, k)
---     if not t then return end
---     return k, table.unpack(t)
--- end
--- 
--- for dstr, key, value in awesome_next, holiday.holidays.CN.days do
---     print("holiday date:"..dstr)
---     print("key type:"..type(key))
---     if nil ~= key then print("holiday key:"..key) end
---     print("v:"..type(value))
--- end
+function awesome_next(t, k)
+    k, t = next(t, k)
+    if not t then return end
+    return k, table.unpack(t)
+end
+
+for dstr, key, value in awesome_next, holiday.holidays.CN.days do
+    print("holiday date:"..dstr)
+    print("key type:"..type(key))
+    if nil ~= key then print("holiday key:"..key) end
+    print("v:"..type(value))
+end
 
 for dstr, v in pairs(holiday.holidays.CN.days) do
     print("holiday date:"..dstr)
