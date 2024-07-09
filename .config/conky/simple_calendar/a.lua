@@ -3,21 +3,28 @@
 ]]
 -- This is a lua script for use in Conky.
 
-local holiday = require("holiday")
-
 function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
 
-require 'cairo'
-require 'cairo_xlib'
--- require 'imlib2'
-require 'rsvg'
--- require 'cairo_imlib2_helper'
-
+-- require 'libcairo'
+-- require 'cairo_xlib'
+-- 
 local sxtwl = require("sxtwl")
-
+local lunar = sxtwl.Lunar()
+-- 
 HOME = os.getenv("HOME")
+lyaml = require('lyaml')
+local holidayFile = io.open(HOME.."/.config/conky/simple_calendar/CN.yaml", "r")
+local holidayConf = holidayFile:read("*a")
+local holiday = {}
+holidayFile:close()
+if nil ~= holidayConf and "" ~= holidayConf then
+    holiday = lyaml.load(holidayConf)
+else
+    holiday = {}
+end
+print("holiday:"..holiday.holidays.CN.names.zh)
 
 -- function awesome_next(t, k)
 --     k, t = next(t, k)
@@ -31,7 +38,14 @@ HOME = os.getenv("HOME")
 --     if nil ~= key then print("holiday key:"..key) end
 --     print("v:"..type(value))
 -- end
-
+-- 
+-- for dstr, v in pairs(holiday.holidays.CN.days) do
+--     print("holiday date:"..dstr)
+--     print("holiday name: "..v.name.zh)
+-- end
+-- 
+-- 
+-- 
 font = "Mono"
 wenquanyi = "wenquanyi zen hei mono"
 font_size = 26
@@ -88,11 +102,11 @@ jqmc = {"冬至", "小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "�
 
 function get_month_full_dates (month_table)
 	monthly_full = ""
-	
+
 	for key, value in pairs( month_table ) do
 	    monthly_full = monthly_full .. value .. "  "
 	end
-	
+
 	return (monthly_full)
 end
 
@@ -108,11 +122,11 @@ end
 
 function get_week_short_names (week)
 	short_names = ""
-	
+
 	for key, value in pairs( week ) do
 	    short_names = short_names .. value .. "    "
 	end
-	
+
 	return (short_names)
 end
 
@@ -125,7 +139,7 @@ function get_days_in_month (month, year)
     return month == 2 and is_leap_year(year) and 29
            or ("\31\28\31\30\31\30\31\31\30\31\30\31"):byte(month)
 end
-  
+
 function split(pString, pPattern)
    local Table = {}  -- NOTE: use {n = 0} in Lua-5.0
    local fpat = "(.-)" .. pPattern
@@ -178,7 +192,7 @@ M_PI = 3.1415926535
 function conky_calendar()
   holidays = {}
 
-  for dstr, v in pairs(holiday) do
+  for dstr, v in pairs(holiday.holidays.CN.days) do
     if string.starts(dstr, "chinese") then
       if v.type == "lunar" then
         str:match("(%d+)-(%d+)-(%d+)")
@@ -197,7 +211,7 @@ function conky_calendar()
   t = os.date('*t', os.time())
   year, month, currentday = t.year, t.month, t.day
 
-  firstdayOfCurrentMonth = sxtwl.fromSolar(year, month, 1)
+  lunarMonth = lunar.yueLiCalc(lunar, year, month);
 
   -- 今年今月的01号
   first_day_of_the_month = os.date("*t",os.time{year=year,month=month,day=01})
@@ -290,13 +304,13 @@ function conky_calendar()
   for i = 1, 6, 1 do
     for j = 1, 7 do
       if pos >= cellstart and pos < cellend then
-        cellDay = sxtwl.fromSolar(year, month, d)
-        d_ch = rmc[cellDay:getLunarDay()]
-        if(cellDay:hasJieQi()) then 
-          d_ch = jqmc[cellDay:getJieQi()]
+        lunarDay = lunarMonth.days[d-1]
+        d_ch = rmc[lunarDay.Ldi+1]
+        if(lunarDay.qk >= 0) then 
+          d_ch = jqmc[lunarDay.jqmc+1]
         end
-        for dstr, v in pairs(holiday) do
-            if v.type == "lunar" and v.month == cellDay:getLunarMonth() and v.day == cellDay:getLunarDay() then
+        for dstr, v in pairs(holiday.holidays.CN.days) do
+            if v.type == "lunar" and v.month == lunarDay.Lmc+1 and v.day == lunarDay.Ldi+1 then
                 d_ch = v.name.zh
             elseif v.type == "solar" and v.month == month and v.day == d then
                 d_ch = v.name.zh
