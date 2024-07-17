@@ -1,4 +1,7 @@
+
+-- 这里load 的sxtwl 是 ./sxtwl.so
 local sxtwl = require("sxtwl")
+-- 这里load 的holiday 是 ~/.config/conky/holiday.lua
 local holiday = require("holiday")
 -- print("sxtwl:"..sxtwl)
 print(holiday['01-01'].name.zh)

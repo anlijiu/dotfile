@@ -341,7 +341,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
 {
-    name='fs_used_perc',           arg='/home/an',                     max_value=100,
+    name='fs_used_perc',           arg='/home/an/',                     max_value=100,
     x=disk_x,                      y=disk_y,
     graph_radius=53,
     graph_thickness=7,
@@ -423,6 +423,7 @@ show_seconds=true
 --===============================================================================================================
 ----------------
 require 'cairo'
+require 'cairo_xlib'
 ----------------
 function rgb_to_r_g_b(colour,alpha)
     return ((colour / 0x10000) % 0x100) / 255., ((colour / 0x100) % 0x100) / 255., (colour % 0x100) / 255., alpha
@@ -711,6 +712,7 @@ and add one line (blank or not) after TEXT
 ]]
 --------------------------
 require 'cairo'
+require 'cairo_xlib'
 --------------------------
 function conky_draw_text()
     local text_settings={
@@ -998,6 +1000,7 @@ TEXT
 ------------------------------------------------------------------------------------------------------------
 
 require 'cairo'
+require 'cairo_xlib'
 
 ------------------------------------------------------------------------------------------------------------
 local    cs, cr = nil

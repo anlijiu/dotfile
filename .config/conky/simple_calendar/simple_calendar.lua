@@ -3,6 +3,7 @@
 ]]
 -- This is a lua script for use in Conky.
 
+-- 这里load 的holiday 是 ~/.config/conky/holiday.lua
 local holiday = require("holiday")
 
 function string.starts(String,Start)
@@ -15,6 +16,7 @@ require 'cairo_xlib'
 require 'rsvg'
 -- require 'cairo_imlib2_helper'
 
+-- 这里load 的sxtwl 是 /usr/local/lib/conky/libsxtwl.so
 local sxtwl = require("sxtwl")
 
 HOME = os.getenv("HOME")

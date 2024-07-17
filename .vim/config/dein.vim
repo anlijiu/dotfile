@@ -209,6 +209,8 @@ if dein#load_state('~/.cache/dein')
 
     " astrojs
     call dein#add('wuelnerdotexe/vim-astro')
+    " vim-astro 需要 vim-stylus 才能 enable astro style
+    call dein#add('wavded/vim-stylus')
 
     " graphql
     call dein#add('jparise/vim-graphql')

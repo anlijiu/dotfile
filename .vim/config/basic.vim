@@ -38,6 +38,17 @@ if has("termguicolors")
     set termguicolors
 endif
 
+" get rid of ctags,  replace with coctag
+if exists('&tagfunc')
+  set tagfunc=CocTagFunc
+endif
+
+"clang dynamic config
+if filereadable('/usr/bin/clangd-15')
+  call coc#config('clangd.path', '/usr/bin/clangd-15')
+"  call coc#config('clangd.compilationDatabasePath', '/home/anlijiu/workspace/mtk8675/out_sys/soong/development/ide/compdb/')
+endif
+
 " copilot.vim
 imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
@@ -216,6 +227,10 @@ set expandtab
 set autoindent
 "オートインデントの文字数
 set shiftwidth=4
+
+"vim-astro
+let g:astro_typescript = 'enable'
+let g:astro_stylus = 'enable'
 
 "----------------------------------------------------------------
 "编码设置
