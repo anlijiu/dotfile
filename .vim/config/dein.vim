@@ -20,6 +20,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add("lifepillar/vim-solarized8")
     call dein#add('joshdick/onedark.vim')
     call dein#add('NLKNguyen/papercolor-theme')
+    call dein#add('jacoborus/tender.vim')
     " call dein#add('dracula/dracula-theme')
     " call dein#add('altercation/vim-colors-solarized')
     

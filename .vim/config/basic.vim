@@ -18,7 +18,10 @@ set background=dark
 " colorscheme gruvbox 
 " colorscheme atom-dark
 " colorscheme onedark
-colorscheme PaperColor
+" colorscheme PaperColor
+colorscheme tender
+hi Comment guifg=#ABCDEF guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
 
 "enable true color 开启16bit真彩色
 if has("termguicolors")
@@ -44,8 +47,8 @@ if exists('&tagfunc')
 endif
 
 "clang dynamic config
-if filereadable('/usr/bin/clangd-15')
-  call coc#config('clangd.path', '/usr/bin/clangd-15')
+if filereadable('/usr/bin/clangd-18')
+  call coc#config('clangd.path', '/usr/bin/clangd-18')
 "  call coc#config('clangd.compilationDatabasePath', '/home/anlijiu/workspace/mtk8675/out_sys/soong/development/ide/compdb/')
 endif
 
