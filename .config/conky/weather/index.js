@@ -145,11 +145,12 @@ function writeFile(info) {
     `${info.forecast[2].day}wind_level=${info.forecast[2].wind_level}\n` +
     `${info.forecast[2].day}pm25=${info.forecast[2].pm25 }\n`;
   var w_data = new Buffer(txt);
-  fs.writeFile(path.join(confilePath, confileName), w_data, function (err) {
+  const cachePath = path.join(confilePath, confileName);
+  fs.writeFile(cachePath, w_data, function (err) {
     if(err) {
       console.error(err);
     } else {
-      console.log('写入成功');
+      console.log(`写入 ${cachePath} 成功`);
     }
   });
 }

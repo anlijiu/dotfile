@@ -21,4 +21,4 @@ SHELL=/bin/sh
 47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 #
-0    6-22  *  *  *      an   /home/an/.nvm/versions/node/v18.0.0/bin/node /home/an/workspace/dotfile/.config/conky/weather/index.js
+0    6-22  *  *  *      an   /home/an/.nvm/versions/node/v22.2.0/bin/node  /home/an/workspace/dotfile/.config/conky/weather/index.js
