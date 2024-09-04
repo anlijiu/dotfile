@@ -4,14 +4,14 @@
 let $HTTP_PROXY = "http://127.0.0.1:9098"
 let $HTTPS_PROXY = "http://127.0.0.1:9098"
 
-" "语法高亮
+" 语法高亮
 syntax on
 
 set encoding=utf-8
 
 "色彩
 set background=dark
-"set background=light
+" set background=light
 " colorscheme pablo
 " colorscheme inkpot
 " colorscheme solarized8
@@ -19,8 +19,10 @@ set background=dark
 " colorscheme atom-dark
 " colorscheme onedark
 " colorscheme PaperColor
-colorscheme tender
-hi Comment guifg=#ABCDEF guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" colorscheme tender
+colorscheme meta5
+" 由于 tender 注释文字颜色和背景颜色过于接近 ，此处特殊设置一下
+hi Comment guifg=#FECACA guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 
 "enable true color 开启16bit真彩色
@@ -53,8 +55,8 @@ if filereadable('/usr/bin/clangd-18')
 endif
 
 " copilot.vim
-imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+"imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
+"let g:copilot_no_tab_map = v:true
 
 " autocmd BufEnter,FileType *
 "             \   elseif &ft ==? 'r' | colorscheme  Tomorrow-Night |

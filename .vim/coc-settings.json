@@ -36,6 +36,8 @@
   "go.goplsOptions": {
     "completeUnimported": true
   },
+  "go.goplsArgs": ["-remote=auto", "-logfile", "/tmp/gopls.log"],
+  "go.goplsPath": "/home/an/go/bin/gopls",
   "hover.floatConfig": { "border": true },
   "html.autoClosingTags": false,
   "languageserver": {
@@ -102,5 +104,6 @@
   "tsserver.trace.server": "verbose",
   "markdown-preview-enhanced.chromePath": "/usr/bin/google-chrome",
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
-  "markdown-preview-enhanced.previewTheme": "one-light.css"
+  "markdown-preview-enhanced.previewTheme": "one-light.css",
+  "snippets.ultisnips.pythonPrompt": false
 }
