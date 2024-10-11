@@ -13,14 +13,14 @@ set encoding=utf-8
 set background=dark
 " set background=light
 " colorscheme pablo
-" colorscheme inkpot
+colorscheme inkpot
 " colorscheme solarized8
 " colorscheme gruvbox 
 " colorscheme atom-dark
 " colorscheme onedark
 " colorscheme PaperColor
 " colorscheme tender
-colorscheme meta5
+" colorscheme meta5
 " 由于 tender 注释文字颜色和背景颜色过于接近 ，此处特殊设置一下
 hi Comment guifg=#FECACA guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
@@ -230,8 +230,7 @@ set expandtab
 
 "自动缩进
 set autoindent
-"オートインデントの文字数
-set shiftwidth=4
+" set shiftwidth=4
 
 "vim-astro
 let g:astro_typescript = 'enable'
@@ -289,6 +288,7 @@ let g:indentLine_setColors = 0
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "scss-syntax.vim
 au BufRead,BufNewFile *.scss set ft=scss syntax=scss
 autocmd FileType scss set iskeyword+=-

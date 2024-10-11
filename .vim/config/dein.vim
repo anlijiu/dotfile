@@ -47,8 +47,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('airblade/vim-gitgutter')
 
     " add <html></html> <xml></xml> end tag
-    call dein#add('alvan/closetag.vim')
-    call dein#add('vim-scripts/surround.vim')
+    " call dein#add('alvan/closetag.vim')
+    " call dein#add('vim-scripts/surround.vim')
 
     " add yaml support
     call dein#add('stephpy/vim-yaml')
@@ -113,9 +113,6 @@ if dein#load_state('~/.cache/dein')
     " 另一个缩进图形化, 上面那个启用之后，这个就不好使了，也没必要用了
     " call dein#add('Yggdroot/indentLine')
 
-    " html5 & svg
-    call dein#add('othree/html5.vim')
-    
     " less
     call dein#add('groenewege/vim-less')
 
