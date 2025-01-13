@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Hexin
+Exec=env WINEPREFIX="/home/an/.wine" wine-stable /home/an/.wine/drive_c/同花顺软件/同花顺/hexin.exe
+Type=Application
+StartupNotify=true
+Icon=/home/an/.wine/drive_c/同花顺软件/同花顺/hexin.ico
+StartupWMClass=hexinlauncher.exe
