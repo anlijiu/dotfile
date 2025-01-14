@@ -168,6 +168,9 @@ if dein#load_state('~/.cache/dein')
     " gradle file type
     call dein#add("tfnico/vim-gradle")
 
+    " glsl file type
+    call dein#add("tikhomirov/vim-glsl")
+
     " snippets
     call dein#add('honza/vim-snippets')
 
@@ -179,6 +182,9 @@ if dein#load_state('~/.cache/dein')
 
     " javascript
     call dein#add("pangloss/vim-javascript")
+
+    " android
+    " call dein#add("hsanson/vim-android")
 
     " JSX highlighting
     call dein#add("MaxMEllon/vim-jsx-pretty")

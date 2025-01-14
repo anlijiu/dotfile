@@ -200,8 +200,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias mgrep='grep --exclude-dir={node_modules,dist,generated,build,.yarn,target} --exclude="tags"'
+alias tionb='sudo tio -b 921600 -d 8 -f none -s 1 -p none  /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0'
+alias sourcenb='source build/envsetup.sh && export OUT_DIR=out_sys && lunch sys_mssi_auto_64_cn_armv82_car_wifi_vm-userdebug'
 
+
+alias mgrep='grep --exclude-dir={node_modules,dist,out,generated,build,.yarn,target} --exclude="tags"'
+alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=on'
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -214,7 +218,11 @@ alias v="vim"
 alias g="gvim"
 alias c='google-chrome --enable-accelerated-compositing --enable-webgl'
 alias f='firefox'
-alias cdmw='cd ~/workspace/letv/vendor/letv/apps/LetvCarObd'
+alias cdnb='cd ~/workspace/zhangrui/mt8676/lla/android'
+
+alias pushpower='adb push ~/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/PowerControl/PowerControl.apk /system/priv-app/PowerControl/PowerControl.apk'
+alias pushserver='adb push  ~/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk /system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk'
+
 alias html2jade='html2jade --donotencode'
 alias grepn='grep --exclude-dir=node_modules'
 alias cdhu='cd $HOME/workspace/fuxi/pangu/system/LINUX/android'
@@ -223,12 +231,21 @@ alias cdvhal='cd $HOME/workspace/fuxi/pangu/system/LINUX/android/hardware/interf
 alias cdvhalsuiren='cd $HOME/workspace/fuxi/suiren/system/LINUX/android/hardware/interfaces/automotive/vehicle/2.0/'
 alias cdhuapp='cd $HOME/workspace/fuxi/pangu/apps/LINUX/android/vendor/fuxi/packages/src/apps'
 alias cdhuappsuiren='cd $HOME/workspace/fuxi/suiren/apps/LINUX/android/vendor/fuxi/packages/src/apps'
-alias cdhucar='cd $HOME/workspace/fuxi/pangu/system/LINUX/android/packages/services/Car/'
 alias cdhucarsuiren='cd $HOME/workspace/fuxi/suiren/system/LINUX/android/packages/services/Car/'
-alias cdrse='cd $HOME/data/fuxi-rse-aosp/LINUX/android'
 alias cdrsecar='cd $HOME/data/fuxi-rse-aosp/LINUX/android/packages/services/Car'
 alias cddashboard='cd $HOME/workspace/fuxi/pangu/LINUX/android/frameworks/base/services/core/java/com/android/server/dashboard/'
 alias rustc='rustc --out-dir out'
+alias cddisplay='cd /home/an/workspace/zhangrui/mt8676/lla/android/vendor/gwm/packages/GwmDisplayManager/app/src/main/java/com/gwm/car/display/'
+alias cdpower='cd /home/an/workspace/zhangrui/mt8676/lla/android/vendor/gwm/packages/PowerControl/app/src/main/java/com/gwm/car/powercontrol/'
+alias cdno='cd $HOME/workspace/zhangrui/mt8676/nobo_android/android/'
+alias cdlib='cd /home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/car-lib/src/android/car'
+alias cdserver='cd /home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/service/src/com/android/car'
+alias sserver='cdnb && sourcenb && aidegen packages/services/Car/service -s -i s'
+alias slib='cdnb && sourcenb && aidegen packages/services/Car/car-lib -s -i s'
+alias spower='cdnb && sourcenb && aidegen vendor/gwm/packages/PowerControl/ -s -i s'
+alias sdisplay='cdnb && sourcenb && aidegen vendor/gwm/packages/GwmDisplayManager/ -s -i s'
+
+
 
 
 alias cdui='cd $HOME/projhub/react-ssr/'
@@ -262,13 +279,36 @@ if ! shopt -oq posix; then
   fi
 fi
 
+uselocalecn() {
+    export LC_ADDRESS="zh_CN.UTF-8"
+    export LC_IDENTIFICATION="zh_CN.UTF-8"
+    export LC_MEASUREMENT="zh_CN.UTF-8"
+    export LC_MONETARY="zh_CN.UTF-8"
+    export LC_NAME="zh_CN.UTF-8"
+    export LC_NUMERIC="zh_CN.UTF-8"
+    export LC_PAPER="zh_CN.UTF-8"
+    export LC_TELEPHONE="zh_CN.UTF-8"
+    export LC_TIME="zh_CN.UTF-8"
+}
+uselocalees() {
+    export LC_ADDRESS="en_US.UTF-8"
+    export LC_IDENTIFICATION="en_US.UTF-8"
+    export LC_MEASUREMENT="en_US.UTF-8"
+    export LC_MONETARY="en_US.UTF-8"
+    export LC_NAME="en_US.UTF-8"
+    export LC_NUMERIC="en_US.UTF-8"
+    export LC_PAPER="en_US.UTF-8"
+    export LC_TELEPHONE="en_US.UTF-8"
+    export LC_TIME="en_US.UTF-8"
+}
+
 useproxy() {
     export HTTP_PROXY='http://127.0.0.1:9098'
     export HTTPS_PROXY='https://127.0.0.1:9098' 
     export http_proxy='http://127.0.0.1:9098'
     export https_proxy='https://127.0.0.1:9098' 
     export ALL_PROXY='http://127.0.0.1:9098' 
-    export all_proxy='http://127.0.0.1:9098' 
+    export all_proxy='https://127.0.0.1:9098' 
 }
 
 cp23() {
@@ -292,16 +332,21 @@ detection_cat ()
 }
 
 export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/workspace/venv-python/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/an/Android/android-studio-2024.2.1.12-linux/android-studio/bin
 export GOPROXY=https://goproxy.io,direct
-export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-export JAVA18_HOME=/usr/lib/jvm/java-18-openjdk-amd64/
-export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64/
-export JAVA11_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
-export JAVA_HOME=$JAVA18_HOME
+export JAVA_TOOL_OPTIONS="-Duser.language=en"
+export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+export JAVA19_HOME=/usr/lib/jvm/java-19-openjdk-amd64
+export JAVA21_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export JAVA17_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=$JAVA17_HOME
 export JAVA_CONF_DIR=$JAVA_HOME/conf
 
 # export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_STUDIO=$HOME/Android/android-studio-2024.2.1.12-linux/android-studio/
 export ANDROID_API_VERSION=34.0.0
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_EMULATOR=$ANDROID_HOME/emulator
@@ -316,12 +361,12 @@ export ANDROID_SDK_ROOT=$ANDROID_HOME
 
 # export LD_LIBRARY_PATH=$ANDROID_TOOLS/emulator/lib64:$LD_LIBRARY_PATH
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$ANDROID_STUDIO/bin:$PATH
 export PATH=$PATH:$ANDROID_EMULATOR:$ANDROID_PLATFORM_TOOLS:$ANDROID_TOOLS:$ANDROID_PROGUARD_TOOLS:$ANDROID_BUILD_TOOL:~/workspace/test/shell
 export PATH=$ANDROID_NDK:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 # $ANDROID_NDK_BIN:
 
-export DEX_2_JAR=/home/an/workspace/android/tools/dex2jar/dex-tools/build/distributions/dex-tools-2.2-SNAPSHOT
+export DEX_2_JAR=$HOME/workspace/android/decompiler/dex-tools-v2.4
 export PATH=$PATH:$DEX_2_JAR
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -341,8 +386,7 @@ export PATH=$XCC/bin:$PATH
 #esp32
 alias idf='. $HOME/workspace/esp/esp32/esp-idf/export.sh'
 export IDF_PATH=$HOME/workspace/esp/esp32/esp-idf
-# export ESP32_XCC=$HOME/workspace/esp/esp32/xtensa-esp32-elf
-export ESP32_XCC=$HOME/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/
+export ESP32_XCC=$HOME/workspace/esp/esp32/xtensa-esp32-elf
 export PATH=$ESP32_XCC/bin:$IDF_PATH/tools:$PATH
 
 
@@ -375,8 +419,8 @@ export PUPPETEER_EXECUTABLE_PATH=$HOME/program/chrome-linux/chrome
 
 
 
-# export YARN_GLOBAL_PATH=$HOME/.config/yarn/global/node_modules/.bin
-# export PATH=$PATH:$YARN_GLOBAL_PATH
+export YARN_GLOBAL_PATH=$HOME/.config/yarn/global/node_modules/.bin
+export PATH=$PATH:$YARN_GLOBAL_PATH
 
 export DEX2JAR_PATH=$HOME/workspace/android/decompile/dex2jar/bin/dex-tools-2.1-SNAPSHOT
 export PATH=$PATH:$DEX2JAR_PATH
@@ -393,9 +437,9 @@ source $HOME/.bash_password
 
 . $HOME/torch/install/bin/torch-activate
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 ZOOKEEPER=$HOME/workspace/zookeeper/apache-zookeeper-3.5.6

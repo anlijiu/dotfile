@@ -1,5 +1,5 @@
 {
-  "tsserver.tsdk": "/home/an/.nvm/versions/node/v18.12.0/lib/node_modules/typescript/lib",
+  "tsserver.tsdk": "/home/an/.nvm/versions/node/v22.12.0/lib/node_modules/typescript/lib",
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
@@ -25,10 +25,8 @@
     "cs",
     "go",
     "haskell",
-    "html",
     "json",
     "lua",
-    "python",
     "scss",
     "yml"
   ],
@@ -41,6 +39,45 @@
   "hover.floatConfig": { "border": true },
   "html.autoClosingTags": false,
   "languageserver": {
+    "jdt.ls": {
+      "command": "jdtls",
+      "rootPatterns": [".classpath"],
+      "args": [
+        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+        "-Dosgi.bundles.defaultStartLevel=4",
+        "-Declipse.product=org.eclipse.jdt.ls.core.product",
+        "-Dlog.protocol=true",
+        "-Dlog.level=ALL",
+        "-Xms1g",
+        "-Xmx2g",
+        "-jar", "/home/an/.program/jdt-language-server-1.44.0-202412192041/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar",
+        "-configuration", "/home/an/.program/jdt-language-server-1.44.0-202412192041//config_linux",
+        "-data", "/home/an/workspace/zhangrui/mt8676/lla/android"
+      ],
+      "java.project.sourcePaths": [
+        "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/services/core/java",
+        "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/core/java",
+        "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/car-lib/src",
+        "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/service/src",
+        "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl_property/android.hardware.automotive.vehicle.property-V2-java-source/gen/",
+      ],
+      "java.project.referencedLibraries": [
+        "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/javalib.jar"
+      ],
+    },
+		"clangd": {
+			"command": "clangd",
+			"rootPatterns": [".git", ".svn", ".hg", ".root", ".project"],
+			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+			"initializationOptions": {
+				"fallbackFlags": [
+          "-std=c++20", "-Idefs", "-Iinclude", "-I.", "-L.",
+					"-Ie:/usr/local/include",
+					"-Ie:/usr/include",
+					"-Wall"
+				]
+			}
+		}
     "cmake": {
       "command": "cmake-language-server",
       "filetypes": ["cmake"],
@@ -61,33 +98,13 @@
     "<C-p>": "normal:k"
   },
   "clangd.fallbackFlags": ["-std=c++20", "-Idefs", "-Iinclude", "-I.", "-L.", "-Wall"],
-  //"clangd.compilationDatabasePath": "/home/anlijiu/workspace/mtk8675/out_sys/soong/development/ide/compdb/",
+  "clangd.compilationDatabasePath": "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/soong/development/ide/compdb",
   "clangd.arguments": [
     "-j=8",
     "--malloc-trim",
     "--background-index",
     "--pch-storage=memory",
   ],
-  //java 
-  "java.enabled": true,
-  "java.project.sourcePaths": [
-    "/home/anlijiu/workspace/mtk8675/frameworks/base/services/core/java",
-    "/home/anlijiu/workspace/mtk8675/frameworks/base/core/java",
-    "/home/anlijiu/workspace/mtk8675/packages/services/Car/car-lib/src",
-    "/home/anlijiu/workspace/mtk8675/packages/services/Car/service/src",
-    "/home/anlijiu/workspace/mtk8675/out_sys/soong/.intermediates/hardware/interfaces/automotive/vehicle/2.0/android.hardware.automotive.vehicle-V2.0-java_gen_java/gen/srcs"
-  ],
-  "java.project.referencedLibraries": [
-    //"/home/anlijiu/workspace/mtk8675/out_sys/soong/.intermediates/frameworks/**/javac/*.jar",
-    //"/home/anlijiu/workspace/mtk8675/out_sys/soong/.intermediates/hardware/interfaces/**/javac/*.jar"
-    //"/home/anlijiu/workspace/mtk8675/out_sys/target/common/obj/JAVA_LIBRARIES/**/*.jar"
-  ],
-  "java.project.resourceFilters": [
-    "node_modules",
-    ".git"
-  ],
-  "java.sharedIndexes.enabled": "on",
-  "java.references.includeAccessors": true,
   "html.format.enable": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
@@ -105,5 +122,11 @@
   "markdown-preview-enhanced.chromePath": "/usr/bin/google-chrome",
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
   "markdown-preview-enhanced.previewTheme": "one-light.css",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "2c23278a62dc9f96ab11bee897d9f53e6479d6419135e4560ce822a6431df5e5",
+      "allowed": false
+    }
+  ]
 }

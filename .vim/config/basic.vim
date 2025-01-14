@@ -3,6 +3,8 @@
 
 let $HTTP_PROXY = "http://127.0.0.1:9098"
 let $HTTPS_PROXY = "http://127.0.0.1:9098"
+" let $HTTP_PROXY = "http://127.0.0.1:16748"
+" let $HTTPS_PROXY = "http://127.0.0.1:16748"
 
 " 语法高亮
 syntax on
@@ -45,7 +47,7 @@ endif
 
 " get rid of ctags,  replace with coctag
 if exists('&tagfunc')
-  set tagfunc=CocTagFunc
+  " set tagfunc=CocTagFunc
 endif
 
 "clang dynamic config
@@ -283,6 +285,9 @@ let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_setColors = 0
 "let g:indentLine_char = '¦'
+
+" add more glsl file types
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 "css 
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
