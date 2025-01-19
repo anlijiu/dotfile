@@ -41,7 +41,7 @@
   "languageserver": {
     "jdt.ls": {
       "command": "jdtls",
-      "rootPatterns": [".classpath"],
+      "rootPatterns": [".project", "pom.xml", "build.gradle", ".git", "mvnw", "gradlew"],
       "args": [
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
@@ -75,7 +75,13 @@
 					"-Ie:/usr/local/include",
 					"-Ie:/usr/include",
 					"-Wall"
-				]
+				],
+        "arguments": [
+          "-j=8",
+          "--malloc-trim",
+          "--background-index",
+          "--pch-storage=memory",
+        ],
 			}
 		}
     "cmake": {
@@ -97,14 +103,6 @@
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
   },
-  "clangd.fallbackFlags": ["-std=c++20", "-Idefs", "-Iinclude", "-I.", "-L.", "-Wall"],
-  "clangd.compilationDatabasePath": "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/soong/development/ide/compdb",
-  "clangd.arguments": [
-    "-j=8",
-    "--malloc-trim",
-    "--background-index",
-    "--pch-storage=memory",
-  ],
   "html.format.enable": true,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
@@ -128,5 +126,6 @@
       "sha256": "2c23278a62dc9f96ab11bee897d9f53e6479d6419135e4560ce822a6431df5e5",
       "allowed": false
     }
-  ]
+  ],
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre"
 }
