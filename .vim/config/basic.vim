@@ -1,15 +1,18 @@
 
 " syn include /home/anlijiu/.vim/bundle/repos/github.com/gko/vim-coloresque/after/syntax/css/vim-coloresque.vim
 
+" let $HTTP_PROXY = "http://127.0.0.1:9098"
+" let $HTTPS_PROXY = "http://127.0.0.1:9098"
 let $HTTP_PROXY = "http://127.0.0.1:9098"
 let $HTTPS_PROXY = "http://127.0.0.1:9098"
-" let $HTTP_PROXY = "http://127.0.0.1:16748"
-" let $HTTPS_PROXY = "http://127.0.0.1:16748"
 
 " 语法高亮
 syntax on
 
 set encoding=utf-8
+
+" https://askubuntu.com/questions/60200/how-to-copy-data-between-different-instances-of-vim 
+set clipboard=unnamedplus 
 
 "色彩
 set background=dark
@@ -51,8 +54,8 @@ if exists('&tagfunc')
 endif
 
 "clang dynamic config
-if filereadable('/usr/bin/clangd-18')
-  call coc#config('clangd.path', '/usr/bin/clangd-18')
+if filereadable('/usr/bin/clangd-20')
+  call coc#config('clangd.path', '/usr/bin/clangd-20')
 "  call coc#config('clangd.compilationDatabasePath', '/home/anlijiu/workspace/mtk8675/out_sys/soong/development/ide/compdb/')
 endif
 

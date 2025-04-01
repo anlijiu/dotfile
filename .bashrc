@@ -204,7 +204,7 @@ alias tionb='sudo tio -b 921600 -d 8 -f none -s 1 -p none  /dev/serial/by-id/usb
 alias sourcenb='source build/envsetup.sh && export OUT_DIR=out_sys && lunch sys_mssi_auto_64_cn_armv82_car_wifi_vm-userdebug'
 
 
-alias mgrep='grep --exclude-dir={node_modules,dist,out,generated,build,.yarn,target} --exclude="tags"'
+alias mgrep='grep --exclude-dir={node_modules,dist,out,generated,build,builddir,.yarn,target} --exclude="tags"'
 alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=on'
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -221,7 +221,14 @@ alias f='firefox'
 alias cdnb='cd ~/workspace/zhangrui/mt8676/lla/android'
 
 alias pushpower='adb push ~/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/PowerControl/PowerControl.apk /system/priv-app/PowerControl/PowerControl.apk'
-alias pushserver='adb push  ~/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk /system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk'
+alias pushserver='adb push  /home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk   /system/priv-app/CarServiceUpdatableNonModule/CarServiceUpdatableNonModule.apk'
+alias pushlib='adb push /home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/framework/*.vdex /system/framework/ && adb push /home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/framework/arm64/* /system/framework/arm64/'
+alias pushdisplay='adb push  /home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/system/priv-app/GwmDisplayManager/GwmDisplayManager.apk  /system/priv-app/GwmDisplayManager/GwmDisplayManager.apk'
+
+export OUT=$HOME/workspace/zhangrui/mt8676/lla/android/out_sys/target/product/mssi_auto_64_cn_armv82_car_wifi_vm/
+alias adbr='adb root;adb remount'
+alias frameworkc='adb shell "rm -rf /system/framework/arm /system/framework/arm64 /system/framework/oat"'
+alias pservices='adbr;frameworkc;adb shell "rm -rf /data/dalvik-cache/arm/system@framework@services.jar@classes.*";adb push $OUT/system/framework/services.jar /system/framework'
 
 alias html2jade='html2jade --donotencode'
 alias grepn='grep --exclude-dir=node_modules'
@@ -366,8 +373,9 @@ export PATH=$PATH:$ANDROID_EMULATOR:$ANDROID_PLATFORM_TOOLS:$ANDROID_TOOLS:$ANDR
 export PATH=$ANDROID_NDK:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 # $ANDROID_NDK_BIN:
 
-export DEX_2_JAR=$HOME/workspace/android/decompiler/dex-tools-v2.4
-export PATH=$PATH:$DEX_2_JAR
+export DEX_2_JAR=$HOME/workspace/android/decompiler/dex-tools-v2.4/
+export JADX_PATH=$HOME/workspace/android/decompiler/jadx/build/jadx/bin
+export PATH=$PATH:$DEX_2_JAR:$JADX_PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -470,3 +478,9 @@ export PATH="$PNPM_HOME:$PATH"
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 # rustup end
+
+# - webgpu  ~/workspace/doc/wasm/emcc.md  
+PATH=$PATH:/home/an/workspace/webgpu/emsdk
+PATH=$PATH:/home/an/workspace/webgpu/emsdk/upstream/emscripten
+EMSDK=/home/an/workspace/webgpu/emsdk
+EMSDK_NODE=/home/an/workspace/webgpu/emsdk/node/20.18.0_64bit/bin/node

@@ -160,3 +160,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" :Vista info
+let g:vista_executive_for = {'vim': 'coc', 'c': 'coc', 'javascript': 'coc', 'html': 'coc', 'typescript': 'coc', 'cpp': 'coc', 'css': 'coc', 'python': 'coc'}

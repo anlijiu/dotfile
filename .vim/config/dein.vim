@@ -96,7 +96,10 @@ if dein#load_state('~/.cache/dein')
 
     " replace vim-tags with vim-gutentags 
     " call dein#add('szw/vim-tags')
-    call dein#add('ludovicchabant/vim-gutentags')
+    " call dein#add('ludovicchabant/vim-gutentags')
+    " call dein#add('majutsushi/tagbar')
+    call dein#add('liuchengxu/vista.vim')
+
     call dein#add('skywind3000/vim-quickui')
 
     " EditorConfig plugin for Vim
@@ -118,8 +121,6 @@ if dein#load_state('~/.cache/dein')
 
     "gc/gci/gca/gcb/gco/等注释
     call dein#add('tyru/caw.vim')
-
-    call dein#add('majutsushi/tagbar')
 
     " :Tab /=  用于程序文件中的等号对齐， :Tab/|用于markdown里面的表格对齐
     " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
