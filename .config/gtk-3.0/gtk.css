@@ -1,13 +1,70 @@
 notebook tab {
-    background-color: shade(@bg_color, 0.7);
-    border-width: 1px 1px 0px 1px;
-    border-radius:  8px 8px 0px 0px;
-    border-image: none;
-    border-style: solid;
-    border-color: @dark_bg_color;
+  background-color: shade(@bg_color, 0.7);
+  border-width: 1px 1px 0px 1px;
+  border-radius: 8px 8px 0px 0px;
+  border-image: none;
+  border-style: solid;
+  border-color: @dark_bg_color;
 }
 
 notebook tab:checked {
-    background-color: @bg_color;
-    border-image: none;
+  background-color: @bg_color;
+  border-image: none;
+}
+
+/** terminator tabbar height **/
+.terminator-terminal-window notebook tab {
+  min-height: 0;
+  padding: 0px;
+}
+
+.terminator-terminal-window notebook tab button {
+  min-height: 0;
+  min-width: 0;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* shrink headerbars (don't forget semicolons after each property) */
+headerbar {
+  min-height: 0px;
+  padding-left: 2px;
+  /* same as childrens vertical margins for nicer proportions */
+  padding-right: 2px;
+  background-color: #2d2d2d;
+}
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+  margin-top: 0px;
+  /* same as headerbar side padding for nicer proportions */
+  margin-bottom: 0px;
+}
+
+/* shrink ssd titlebars */
+.default-decoration {
+  min-height: 0;
+  /* let the entry and button drive the titlebar size */
+  padding: 0px;
+  background-color: #2d2d2d;
+}
+
+.default-decoration .titlebutton {
+  min-height: 0px;
+  /* tweak these two props to reduce button size */
+  min-width: 0px;
+}
+
+window.ssd headerbar.titlebar {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-height: 0;
+}
+
+window.ssd headerbar.titlebar button.titlebutton {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  min-height: 0;
 }
