@@ -7,6 +7,11 @@ set encoding=utf-8
 set nobackup
 set nowritebackup
 
+" double 会导致 coc 弹出框每一行的第一个字母被遮挡 显示不出来
+set ambiwidth=single
+
+let g:coc_node_path = trim(system('which node'))
+
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
 set updatetime=300

@@ -1,5 +1,9 @@
 {
   "tsserver.tsdk": "/home/an/.nvm/versions/node/v22.12.0/lib/node_modules/typescript/lib",
+  "coc.preferences.completionItem.icons": true,
+  "coc.preferences.completionItem.signs": true,
+  "coc.preferences.completionItem.documentation": true,
+  "coc.preferences.completionItem.detail": true
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
@@ -30,41 +34,26 @@
     "scss",
     "yml"
   ],
-  "diagnostic.floatConfig": { "border": true },
   "go.goplsOptions": {
     "completeUnimported": true
   },
   "go.goplsArgs": ["-remote=auto", "-logfile", "/tmp/gopls.log"],
   "go.goplsPath": "/home/an/go/bin/gopls",
-  "hover.floatConfig": { "border": true },
   "html.autoClosingTags": false,
+  "java.project.sourcePaths": [
+    "/home/an/workspace/zhangrui/mt8676/lla/android/vendor/gwm/packages/GwmDisplayManager/app/src/main/java/",
+    "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/services/core/java",
+    "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/core/java",
+    "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/car-lib/src",
+    "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/service/src",
+    "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl_property/android.hardware.automotive.vehicle.property-V2-java-source/gen/"
+  ],
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-1.24.0-openjdk-amd64",
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+  "java.project.referencedLibraries": [
+    "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/javalib.jar"
+  ],
   "languageserver": {
-    "jdt.ls": {
-      "command": "jdtls",
-      "rootPatterns": [".project", "pom.xml", "build.gradle", ".git", "mvnw", "gradlew"],
-      "args": [
-        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-        "-Dosgi.bundles.defaultStartLevel=4",
-        "-Declipse.product=org.eclipse.jdt.ls.core.product",
-        "-Dlog.protocol=true",
-        "-Dlog.level=ALL",
-        "-Xms1g",
-        "-Xmx2g",
-        "-jar", "/home/an/.program/jdt-language-server-1.44.0-202412192041/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar",
-        "-configuration", "/home/an/.program/jdt-language-server-1.44.0-202412192041/config_linux",
-        "-data", "/home/an/workspace/zhangrui/mt8676/lla/android"
-      ],
-      "java.project.sourcePaths": [
-        "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/services/core/java",
-        "/home/an/workspace/zhangrui/mt8676/lla/android/frameworks/base/core/java",
-        "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/car-lib/src",
-        "/home/an/workspace/zhangrui/mt8676/lla/android/packages/services/Car/service/src",
-        "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl_property/android.hardware.automotive.vehicle.property-V2-java-source/gen/",
-      ],
-      "java.project.referencedLibraries": [
-        "/home/an/workspace/zhangrui/mt8676/lla/android/out_sys/target/common/obj/JAVA_LIBRARIES/framework-minus-apex_intermediates/javalib.jar"
-      ],
-    },
     "cmake": {
       "command": "cmake-language-server",
       "filetypes": ["cmake"],
@@ -130,14 +119,14 @@
   "prettier.disableLanguages": ["haskell"],
   "prettier.printWidth": 100,
   "prettier.tabWidth": 2,
-  "signature.floatConfig": { "border": true },
-  "suggest.floatConfig": { "border": true },
   "sumneko-lua.enableNvimLuaDev": true,
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
   "markdown-preview-enhanced.chromePath": "/usr/bin/google-chrome",
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
-  "markdown-preview-enhanced.previewTheme": "one-light.css",
+  "markdown-preview-enhanced.previewTheme": "newsprint.css",
+  "markdown-preview-enhanced.mathRenderingOption": "MathJax",
+  // "markdown-preview-enhanced.mathRenderingOption": "KaTeX",
   "snippets.ultisnips.pythonPrompt": false,
   "java.imports.gradle.wrapper.checksums": [
     {
@@ -145,5 +134,13 @@
       "allowed": false
     }
   ],
-  "java.import.gradle.java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre"
+  "diagnostic.floatConfig": { "border": true },
+  "suggest.floatConfig": {
+    "borderhighlight": "CocBorderHighlight",
+    "border": true,
+    "rounded": true,
+  },
+  "signature.floatConfig": { "border": true },
+  "hover.floatConfig": { "border": true },
+
 }

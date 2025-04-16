@@ -4,8 +4,8 @@
 " let g:airline_theme="molokai" 
 " install powerline fonts:  https://github.com/powerline/fonts
 
-
-set ambiwidth=double
+" 导致 coc 弹出框每一行的第一个字母被遮挡 显示不出来
+" set ambiwidth=double
 
 let g:airline_theme='badwolf'
 "这个是安装字体后 必须设置此项" 

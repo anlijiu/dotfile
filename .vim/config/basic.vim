@@ -260,7 +260,8 @@ language messages zh_CN.utf-8
 "设置中文帮助
 set helplang=cn
 "设置为双字宽显示，否则无法完整显示如:☆
-set ambiwidth=double
+" double会导致 coc 弹窗每一行首字母被遮挡 显示不出
+" set ambiwidth=double
 
 "缩进指示  需要安装vim-indent-guides
 let g:indent_guides_auto_colors = 1
