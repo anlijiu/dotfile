@@ -23,4 +23,4 @@ SHELL=/bin/sh
 #
 0  6-22 *  *  * an      /home/an/.nvm/versions/node/v22.12.0/bin/node  /home/an/workspace/dotfile/.config/conky/weather/index.js
 0  23   *  *  1,2,3,4,5 an      /home/an/workspace/test/python/stock/download_k.py
-59 23   *  *  1,2,3,4,5 an      /home/an/workspace/stock/stock/csv_database/s
+59 23   *  *  1,2,3,4,5 an  /home/an/.nvm/versions/node/v22.12.0/bin/node /home/an/workspace/stock/stock/csv_database/bin/cmd.js sync
