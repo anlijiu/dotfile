@@ -1,0 +1,7 @@
+# wget https://apt.llvm.org/llvm.sh
+# chmod +x llvm.sh
+# sudo ./llvm.sh <version number>
+# 例如  sudo ./llvm.sh 21
+
+deb http://apt.llvm.org/plucky/ llvm-toolchain-plucky-21 main
+# deb-src http://apt.llvm.org/plucky/ llvm-toolchain-plucky-21 main
